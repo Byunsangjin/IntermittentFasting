@@ -8,8 +8,6 @@
 
 import UIKit
 
-//test
-
 class ViewController: UIViewController {
     // MARK:- Outlets
     @IBOutlet var infoButton: UIButton!

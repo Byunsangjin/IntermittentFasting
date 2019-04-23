@@ -12,6 +12,7 @@ import RxCocoa
 
 class InputInfoViewController: UIViewController {
     // MARK:- Outlets
+    
     @IBOutlet var genderButton: [ButtonLayer]!
     
     @IBOutlet var heightTextField: TextFieldLayer!
@@ -20,17 +21,25 @@ class InputInfoViewController: UIViewController {
     @IBOutlet var heightWarningImg: UIImageView!
     @IBOutlet var weightWarningImg: UIImageView!
     
+    @IBOutlet var mainView: UIView!
+    
+    @IBOutlet var topConstraint: NSLayoutConstraint!
+    @IBOutlet var bottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var heightTFConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var cmLabel: UILabel!
+    @IBOutlet var kgLabel: UILabel!
     
     
     // MARK:- Variables
     var disposeBag = DisposeBag()
     
     
-
+    
     // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUI()
     }
     
@@ -43,31 +52,72 @@ class InputInfoViewController: UIViewController {
     
     
     func setUI() {
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+        self.mainView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         
+        // 신장 텍스트필드
         heightTextField.rx.text.orEmpty
             .map(isTextFieldEmpty)
             .subscribe(onNext: { b in
                 self.heightWarningImg.isHidden = !b
+                self.cmLabel.isHidden = b
             }).disposed(by: disposeBag)
         
+        // 체중 텍스트필드
         weightTextField.rx.text.orEmpty
             .map(isTextFieldEmpty)
             .subscribe(onNext: { b in
                 self.weightWarningImg.isHidden = !b
+                self.kgLabel.isHidden = b
             }).disposed(by: disposeBag)
+        
+        // 키보드 알림 센터에 등록
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    
+    
+    func isTextFieldEmpty(text: String) -> Bool {
+        return text.isEmpty
+    }
+    
+    
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            
+            // 신장 TextField의 중앙 Constraint + 30
+            let keyboardShowHeight = keyboardHeight - (UIScreen.main.bounds.height - (UIScreen.main.bounds.height / 2) * heightTFConstraint.multiplier) + 30
+            
+            self.bottomConstraint.constant = keyboardShowHeight
+            self.topConstraint.constant = -keyboardShowHeight
+        }
+    }
+    
+    
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        self.bottomConstraint.constant = 0
+        self.topConstraint.constant = 0
     }
     
     
     
     @objc func hideKeyboard() {
         self.view.endEditing(true)
-    }
-    
-    
-    func isTextFieldEmpty(text: String) -> Bool {
-        print("isEmpty \(text.isEmpty)")
-        return text.isEmpty
     }
     
     
@@ -79,7 +129,7 @@ class InputInfoViewController: UIViewController {
     
     
     
-    @IBAction func genderBtnClick(_ sender: ButtonLayer) {
+    @IBAction func genderBtnClick(_ sender: UIButton) {
         let selectColor = UIColor(hexString: "60DDB4")
         let unSelectTextColor = UIColor.black
         let unSelectBorderColor = UIColor(hexString: "B6B6B6")

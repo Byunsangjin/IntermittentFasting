@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     // MARK:- Outlets
-    @IBOutlet var infoButton: UIButton!
     @IBOutlet var startButton: UIButton!
     
     
@@ -23,15 +22,6 @@ class ViewController: UIViewController {
     
     
     // MARK:- Actions
-    @IBAction func infoBtnClick(_ sender: Any) {
-        let infoPageVC = self.storyboard?.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
-        
-        self.addChild(infoPageVC)
-        self.view.addSubview(infoPageVC.view)
-    }
-    
-    
-    
     @IBAction func startBtnClick(_ sender: Any) {
         let inputInfoVC = self.storyboard?.instantiateViewController(withIdentifier: "InputInfoViewController") as! InputInfoViewController
         

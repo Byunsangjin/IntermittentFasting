@@ -46,6 +46,24 @@ class GradationView: UIView {
         }
     }
     
+    @IBInspectable var shadowColor: UIColor? {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
+    @IBInspectable var shadowOffset: CGSize = CGSize.zero {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
+    @IBInspectable var shadowOpacity: Float = 0 {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
     private var gradient: CAGradientLayer?
     
     
@@ -76,6 +94,10 @@ class GradationView: UIView {
             gradient.cornerRadius = radius
             gradient.borderWidth = borderWidth
             gradient.borderColor = borderColor.cgColor
+            
+            gradient.shadowColor = shadowColor?.cgColor
+            gradient.shadowOffset = shadowOffset
+            gradient.shadowOpacity = shadowOpacity
         }
     }
     

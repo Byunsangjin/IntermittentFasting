@@ -31,6 +31,10 @@ class InputInfoViewController: UIViewController {
     @IBOutlet var cmLabel: UILabel!
     @IBOutlet var kgLabel: UILabel!
     
+    @IBOutlet var nextBtnView: GradationView!
+    
+    
+    
     
     // MARK:- Variables
     var disposeBag = DisposeBag()
@@ -53,6 +57,7 @@ class InputInfoViewController: UIViewController {
     
     func setUI() {
         self.mainView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+        self.nextBtnView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(nextBtnClick)))
         
         // 신장 텍스트필드
         heightTextField.rx.text.orEmpty
@@ -118,6 +123,13 @@ class InputInfoViewController: UIViewController {
     
     @objc func hideKeyboard() {
         self.view.endEditing(true)
+    }
+    
+    
+    
+    @objc func nextBtnClick() {
+        let selectWayVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectWayViewController") as! SelectWayViewController
+        self.present(selectWayVC, animated: true)
     }
     
     

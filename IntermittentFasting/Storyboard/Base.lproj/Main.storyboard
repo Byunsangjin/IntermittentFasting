@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IX2-g9-VNn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -127,6 +127,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1071.2" y="138.98050974512745"/>
+        </scene>
+        <!--Weight Page View Controller-->
+        <scene sceneID="Tx6-Nt-3rq">
+            <objects>
+                <viewController id="IX2-g9-VNn" customClass="WeightPageViewController" customModule="IntermittentFasting" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mDx-0d-wnk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="몸무게" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKb-mD-pZ0">
+                                <rect key="frame" x="165" y="46" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfD-bP-bIV" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="30" y="90" width="315" height="165.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JfD-bP-bIV" secondAttribute="height" multiplier="343:180" id="3f8-3M-7um"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3pw-mk-XTu" firstAttribute="trailing" secondItem="JfD-bP-bIV" secondAttribute="trailing" constant="30" id="0z9-rL-avC"/>
+                            <constraint firstItem="JfD-bP-bIV" firstAttribute="top" secondItem="gKb-mD-pZ0" secondAttribute="bottom" constant="23" id="17y-iv-3w2"/>
+                            <constraint firstItem="JfD-bP-bIV" firstAttribute="leading" secondItem="3pw-mk-XTu" secondAttribute="leading" constant="30" id="1c8-hg-5lr"/>
+                            <constraint firstItem="gKb-mD-pZ0" firstAttribute="top" secondItem="3pw-mk-XTu" secondAttribute="top" constant="26" id="6dt-pA-Ehv"/>
+                            <constraint firstItem="gKb-mD-pZ0" firstAttribute="centerX" secondItem="mDx-0d-wnk" secondAttribute="centerX" id="urV-QX-lh9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3pw-mk-XTu"/>
+                    </view>
+                    <connections>
+                        <outlet property="chartView" destination="JfD-bP-bIV" id="iem-MM-Tkv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JEv-KU-0uZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1060" y="945.87706146926541"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="UL6-os-K3U">

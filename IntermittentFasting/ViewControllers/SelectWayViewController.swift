@@ -93,6 +93,13 @@ class SelectWayViewController: UIViewController {
             button.setTitleColor(unSelectTextColor, for: .normal)
         }
     }
+	
+	// 완료 버튼
+	@IBAction func onCompleteClick(_ sender: UIButton) {
+		let TabbarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabbarViewController")
+		UIApplication.shared.keyWindow?.rootViewController = TabbarVC
+		UIApplication.shared.keyWindow?.makeKeyAndVisible()
+	}
 }
 
 

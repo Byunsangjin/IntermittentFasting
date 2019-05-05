@@ -18,7 +18,7 @@ class CalendarPopup: BasePopup, UICollectionViewDataSource {
     // 셀라인갯수
     var cellLineCount:Int = 0
 
-    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var btnTitle: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
     
@@ -52,7 +52,7 @@ class CalendarPopup: BasePopup, UICollectionViewDataSource {
     
     // 화면 갱신
     func updateScreen() {
-        self.lbTitle.text = "\(self.curentYear)년 \(self.curentMonth)월"
+		self.btnTitle.setTitle("\(self.curentYear)년 \(self.curentMonth)월", for: UIControl.State.normal)
         
         // 콜렉션뷰 데이터 초기화
         self.collectionView.reloadData()
@@ -90,7 +90,20 @@ class CalendarPopup: BasePopup, UICollectionViewDataSource {
         // 화면 초기화
         initGUI()
     }
+	
+	// 오늘 이동
+	@IBAction func onTodayClick(_ sender: Any) {
+		// 오늘 날짜 선택 날짜 초기화
+		CalendarManager.newSelectedDay = CalendarManager.getTodayIndex()
 
+		let today = CalendarManager.getYearMonth(amount: 0)
+		self.curentYear = today.year
+		self.curentMonth = today.month
+		
+		// 화면 초기화
+		initGUI()
+	}
+	
     // 다음달 이동
     @IBAction func onNextMonthClick(_ sender: Any) {
         let dateNext = CalendarManager.getYearMonth(year: self.curentYear, month: self.curentMonth, amount: 1)

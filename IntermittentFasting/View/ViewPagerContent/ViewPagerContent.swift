@@ -201,7 +201,7 @@ extension ViewPagerContent: UIScrollViewDelegate {
             if isToNextItem == true {
 				if length > 0 {
 					offset.x = (nextItemOffsetX - currentItemOffsetX) * ratio + currentItemOffsetX
-					self.menuTabbar!.setContentOffset(offset, animated: false)
+					self.menuTabbar.setContentOffset(offset, animated: false)
 				}
                 self.menuTabbar.indicatorViewFrameWithRatio(ratio: ratio * 1, isNextItem: isToNextItem, toIndex: self.curPageIndex)
             }
@@ -229,11 +229,10 @@ extension ViewPagerContent: UIScrollViewDelegate {
     
     // 2. 스크롤뷰가 스크롤 된 후에 실행된다.
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+		
         if scrollView.contentOffset.x != self.oldContentOffset.x {
             scrollView.isPagingEnabled = true
-//            scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: <#T##Double#>)
-            
+
             displayScrollUI(scrollView)
         }
         else {
@@ -256,36 +255,54 @@ extension ViewPagerContent: UIScrollViewDelegate {
     // 스크롤뷰가 Touch-up 이벤트를 받아 스크롤 속도가 줄어들때 실행된다.
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         print("scrollViewWillBeginDecelerating")
-        
+		
+		let newPageIndex: Int = Int(scrollView.contentOffset.x / scrollView.frame.width)
+		
+		// 현재 선택된 페이지 인덱스와 같은 경우 더이상 처리하지 않는다.
+		if self.curPageIndex != newPageIndex {
+			self.oldPageIndex = self.curPageIndex
+			self.curPageIndex = newPageIndex
+			
+			// item select index
+			self.menuTabbar.setCurrentIndex(newPageIndex)
+			
+			// 부모한테 이벤트 처리
+			if let delegate = self.delegate {
+				if delegate.responds(to: #selector(delegate.containerViewItem(_:))) {
+					delegate.containerViewItem(self.curPageIndex)
+				}
+			}
+		}
+		
+		displayScrollUI(scrollView)
     }
     
     // 스크롤 애니메이션의 감속 효과가 종료된 후에 실행된다.
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
+		
         self.oldContentOffset = scrollView.contentOffset
         
         let newPageIndex: Int = Int(scrollView.contentOffset.x / scrollView.frame.width)
-        
+		
         // 현재 선택된 페이지 인덱스와 같은 경우 더이상 처리하지 않는다.
-        if self.curPageIndex == newPageIndex {
-            return
-        }
-        
-        self.oldPageIndex = self.curPageIndex
-        self.curPageIndex = newPageIndex
-        
-        // item select index
-        self.menuTabbar?.setCurrentIndex(newPageIndex)
+        if self.curPageIndex != newPageIndex {
+			self.oldPageIndex = self.curPageIndex
+			self.curPageIndex = newPageIndex
+			
+			// item select index
+			self.menuTabbar.setCurrentIndex(newPageIndex)
 
-        print(newPageIndex)
-        
-        // 부모한테 이벤트 처리
-        if let delegate = self.delegate {
-            if delegate.responds(to: #selector(delegate.containerViewItem(_:))) {
-                delegate.containerViewItem(self.curPageIndex)
-            }
+			print(newPageIndex)
+
+			// 부모한테 이벤트 처리
+			if let delegate = self.delegate {
+				if delegate.responds(to: #selector(delegate.containerViewItem(_:))) {
+					delegate.containerViewItem(self.curPageIndex)
+				}
+			}
         }
-        
+
+
         displayScrollUI(scrollView)
     }
     
@@ -306,16 +323,16 @@ extension ViewPagerContent: UIScrollViewDelegate {
     // 사용자가 콘텐츠 스크롤을 마쳤을 때 대리인에게 알립니다.
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         print("scrollViewWillEndDragging:withVelocity:targetContentOffset:")
-        
+		
     }
 }
 
 
 extension ViewPagerContent: ViewPagerMenuDelegate {
     func scrollMenuViewSelected(_ index: Int) {
-        
+
         // item select index
-        self.menuTabbar?.setCurrentIndex(index)
+        self.menuTabbar.setCurrentIndex(index)
         
         // 현재 선택된 페이지 인덱스와 같은 경우 더이상 처리하지 않는다.
         if self.curPageIndex == index {

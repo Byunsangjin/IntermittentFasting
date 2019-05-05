@@ -10,10 +10,16 @@ import UIKit
 
 class PersonalFoodViewController: UIViewController {
 
+	@IBOutlet weak var btnFoodAdd: UIButton!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		// 음식 추가 버튼 그림자
+		btnFoodAdd.layer.shadowColor = UIColor(hex: 0xFF7F67).cgColor
+		btnFoodAdd.layer.shadowOffset = CGSize(width: 0, height: 4)
+		btnFoodAdd.layer.shadowOpacity = 0.35
     }
     
 
@@ -27,4 +33,14 @@ class PersonalFoodViewController: UIViewController {
     }
     */
 
+	// MARK: - Action
+	
+	// 음식 추가
+	@IBAction func onFoodAddClick(_ sender: UIButton) {
+//		if let storyboard = AppDelegate.sharedNamedStroyBoard("Sama73") as? UIStoryboard {
+//
+//			let foodAddVC: FoodAddViewController = storyboard.instantiateViewController(withIdentifier: "FoodAddViewController") as! FoodAddViewController
+//			self.present(foodAddVC, animated: true, completion: nil)
+//		}
+	}
 }

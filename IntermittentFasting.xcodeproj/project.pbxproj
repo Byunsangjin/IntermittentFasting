@@ -50,6 +50,8 @@
 		6098ECA22269D9B90042EA96 /* icon_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6098EC9F2269D9B80042EA96 /* icon_close@2x.png */; };
 		6098ECA32269D9B90042EA96 /* icon_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6098ECA02269D9B90042EA96 /* icon_close@3x.png */; };
 		6098ECA52269E9C10042EA96 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6098ECA42269E9C10042EA96 /* CustomLabel.swift */; };
+		D904E6EF227EF98000972950 /* AlertMessagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904E6EE227EF97F00972950 /* AlertMessagePopup.swift */; };
+		D904E6F1227F04EB00972950 /* PersonalFoodAddPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904E6F0227F04EB00972950 /* PersonalFoodAddPopup.swift */; };
 		D9D94FB3227DA4CD00E50069 /* icon_home_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D94F90227DA4CD00E50069 /* icon_home_on@3x.png */; };
 		D9D94FB4227DA4CD00E50069 /* btn_next@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D94F91227DA4CD00E50069 /* btn_next@3x.png */; };
 		D9D94FB5227DA4CD00E50069 /* icon_personal_settings_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D94F92227DA4CD00E50069 /* icon_personal_settings_off@3x.png */; };
@@ -155,6 +157,8 @@
 		6098ECA02269D9B90042EA96 /* icon_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@3x.png"; sourceTree = "<group>"; };
 		6098ECA42269E9C10042EA96 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		97680E891D7EEB4857C71F33 /* Pods-IntermittentFasting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntermittentFasting.release.xcconfig"; path = "Pods/Target Support Files/Pods-IntermittentFasting/Pods-IntermittentFasting.release.xcconfig"; sourceTree = "<group>"; };
+		D904E6EE227EF97F00972950 /* AlertMessagePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertMessagePopup.swift; sourceTree = "<group>"; };
+		D904E6F0227F04EB00972950 /* PersonalFoodAddPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalFoodAddPopup.swift; sourceTree = "<group>"; };
 		D9D94F90227DA4CD00E50069 /* icon_home_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_home_on@3x.png"; sourceTree = "<group>"; };
 		D9D94F91227DA4CD00E50069 /* btn_next@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_next@3x.png"; sourceTree = "<group>"; };
 		D9D94F92227DA4CD00E50069 /* icon_personal_settings_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_personal_settings_off@3x.png"; sourceTree = "<group>"; };
@@ -536,9 +540,11 @@
 		D9D95002227DA51700E50069 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
+				D904E6EE227EF97F00972950 /* AlertMessagePopup.swift */,
 				D9D95003227DA51700E50069 /* CalendarDayCell.swift */,
 				D9D95004227DA51700E50069 /* BasePopup.swift */,
 				D9D95005227DA51700E50069 /* CalendarPopup.swift */,
+				D904E6F0227F04EB00972950 /* PersonalFoodAddPopup.swift */,
 			);
 			path = Popups;
 			sourceTree = "<group>";
@@ -764,12 +770,14 @@
 				6098EC7B2268B30A0042EA96 /* TextFieldLayer.swift in Sources */,
 				D9D94FEB227DA4EB00E50069 /* BoardMainViewController.swift in Sources */,
 				D9D9500F227DA51700E50069 /* BasePopup.swift in Sources */,
+				D904E6F1227F04EB00972950 /* PersonalFoodAddPopup.swift in Sources */,
 				D9D94FFD227DA4F700E50069 /* WaveProgressView.swift in Sources */,
 				6080EEFD2273064800968D0E /* Date+String.swift in Sources */,
 				605B40852266F128006D723A /* Gradation.swift in Sources */,
 				D9D94FE9227DA4EB00E50069 /* WeightMainViewController.swift in Sources */,
 				606A40ED2264CE42004B9329 /* AppDelegate.swift in Sources */,
 				6098ECA52269E9C10042EA96 /* CustomLabel.swift in Sources */,
+				D904E6EF227EF98000972950 /* AlertMessagePopup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

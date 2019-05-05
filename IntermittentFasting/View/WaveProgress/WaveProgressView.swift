@@ -327,8 +327,8 @@ extension WaveProgressView {
         }
         
         // 값이 제한값을 넘어섰을때...
-        if limitValue < value {
-            let colors: [Any] = [UIColor.init(hex: 0xDD60B4).cgColor, UIColor.init(hex: 0xCB62EA).cgColor]
+        if limitValue <= value {
+            let colors: [Any] = [UIColor.init(hex: 0xFFA07E).cgColor, UIColor.init(hex: 0xFF7F67).cgColor]
             
             gradLayer1.colors = colors
             gradLayer2.colors = colors

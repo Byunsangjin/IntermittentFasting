@@ -97,21 +97,12 @@ class CalorieMainViewController: UIViewController {
     // MARK: - Action
     // 달력 팝업
     @IBAction func onCalendarClick(_ sender: UIButton) {
-		let popupVC = PersonalFoodAddPopup.personalFoodAddPopup()
-		popupVC.addActionConfirmClick("확인") {
-			
-		}
-		
-		popupVC.addActionCancelClick("취소") {
-			
-		}
-/*
+
         let popupVC = CalendarPopup.calendarPopup()
         popupVC.addActionConfirmClick { (year, month, day) in
             // 화면 갱신
             self.updateScreen()
         }
-*/
     }
     
     // 음식 추가

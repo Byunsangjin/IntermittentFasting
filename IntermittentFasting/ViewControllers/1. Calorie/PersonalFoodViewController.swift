@@ -37,10 +37,15 @@ class PersonalFoodViewController: UIViewController {
 	
 	// 음식 추가
 	@IBAction func onFoodAddClick(_ sender: UIButton) {
-//		if let storyboard = AppDelegate.sharedNamedStroyBoard("Sama73") as? UIStoryboard {
-//
-//			let foodAddVC: FoodAddViewController = storyboard.instantiateViewController(withIdentifier: "FoodAddViewController") as! FoodAddViewController
-//			self.present(foodAddVC, animated: true, completion: nil)
-//		}
+		let popupVC = PersonalFoodAddPopup.personalFoodAddPopup()
+		popupVC.addActionConfirmClick("확인") { (strFoodName, calorie, gram) in
+			print(strFoodName)
+			print(calorie)
+			print(gram)
+		}
+		
+		popupVC.addActionCancelClick("취소") {
+			
+		}
 	}
 }

@@ -392,7 +392,7 @@
         <!--Alert Message Popup-->
         <scene sceneID="tRh-Ca-rBe">
             <objects>
-                <viewController storyboardIdentifier="AlertMessagePopup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Zz-83-dli" customClass="AlertMessagePopup" customModule="Project01" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlertMessagePopup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Zz-83-dli" customClass="AlertMessagePopup" customModule="IntermittentFasting" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S0M-7Z-Ukd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -543,37 +543,83 @@
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="칼로리" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="74R-RU-IWX">
-                                        <rect key="frame" x="26" y="93" width="140" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yid-ps-v3p" customClass="UZTextField" customModule="IntermittentFasting" customModuleProvider="target">
+                                        <rect key="frame" x="26" y="98" width="140" height="36"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="7Fa-ez-d08"/>
+                                            <constraint firstAttribute="height" constant="36" id="675-mQ-bGL"/>
+                                            <constraint firstAttribute="width" constant="140" id="7cX-oT-8gV"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="음식양/1인분?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qJ0-0u-Qsf">
-                                        <rect key="frame" x="209" y="93" width="140" height="30"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="hint" value="칼로리"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="textSize">
+                                                <real key="value" value="19"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" red="0.71372549019607845" green="0.71372549019607845" blue="0.71372549019607845" alpha="0.99662885273972601" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="hintColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBt-yI-4FO" customClass="UZTextField" customModule="IntermittentFasting" customModuleProvider="target">
+                                        <rect key="frame" x="209" y="98" width="140" height="36"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="bg2-uZ-LGE"/>
+                                            <constraint firstAttribute="width" constant="140" id="3vf-dg-eRd"/>
+                                            <constraint firstAttribute="height" constant="36" id="GbG-pv-JzJ"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="hint" value="음식양/1인분?"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="textSize">
+                                                <real key="value" value="19"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" red="0.71372549019607845" green="0.71372549019607845" blue="0.71372549019607845" alpha="0.99662885273972601" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="hintColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="R9H-xC-qqa" firstAttribute="top" secondItem="74R-RU-IWX" secondAttribute="bottom" constant="18" id="0dM-g4-vKF"/>
-                                    <constraint firstItem="74R-RU-IWX" firstAttribute="leading" secondItem="zia-bL-YKP" secondAttribute="leading" constant="26" id="3q8-JO-44A"/>
+                                    <constraint firstItem="Yid-ps-v3p" firstAttribute="leading" secondItem="zia-bL-YKP" secondAttribute="leading" constant="26" id="1IS-vH-lUh"/>
+                                    <constraint firstItem="qBt-yI-4FO" firstAttribute="top" secondItem="Yid-ps-v3p" secondAttribute="top" id="2IY-XK-LID"/>
                                     <constraint firstAttribute="height" constant="183" id="5sh-ie-Qdg"/>
                                     <constraint firstAttribute="trailing" secondItem="SNh-up-r46" secondAttribute="trailing" constant="12" id="7jI-YC-wOk"/>
                                     <constraint firstAttribute="bottom" secondItem="R9H-xC-qqa" secondAttribute="bottom" constant="6" id="BhD-Ic-tWS"/>
+                                    <constraint firstItem="R9H-xC-qqa" firstAttribute="top" secondItem="Yid-ps-v3p" secondAttribute="bottom" constant="7" id="E3a-DW-GhG"/>
                                     <constraint firstAttribute="trailing" secondItem="Hvt-Je-kkC" secondAttribute="trailing" constant="26" id="K5j-cF-czU"/>
                                     <constraint firstItem="Hvt-Je-kkC" firstAttribute="leading" secondItem="zia-bL-YKP" secondAttribute="leading" constant="26" id="R3C-LN-CnW"/>
                                     <constraint firstItem="SNh-up-r46" firstAttribute="top" secondItem="R9H-xC-qqa" secondAttribute="top" id="RMI-cd-McI"/>
-                                    <constraint firstAttribute="trailing" secondItem="qJ0-0u-Qsf" secondAttribute="trailing" constant="26" id="YYX-Nd-XdX"/>
-                                    <constraint firstItem="qJ0-0u-Qsf" firstAttribute="top" secondItem="74R-RU-IWX" secondAttribute="top" id="Yx0-m6-vwE"/>
+                                    <constraint firstAttribute="trailing" secondItem="qBt-yI-4FO" secondAttribute="trailing" constant="26" id="hbm-xo-WpZ"/>
                                     <constraint firstItem="R9H-xC-qqa" firstAttribute="leading" secondItem="zia-bL-YKP" secondAttribute="leading" constant="12" id="iHQ-jW-7ee"/>
                                     <constraint firstItem="Hvt-Je-kkC" firstAttribute="top" secondItem="zia-bL-YKP" secondAttribute="top" constant="26" id="rDy-KF-CE4"/>
                                 </constraints>
@@ -602,9 +648,9 @@
                     <connections>
                         <outlet property="btnCancel" destination="R9H-xC-qqa" id="0Dc-lz-skE"/>
                         <outlet property="btnConfirm" destination="SNh-up-r46" id="Ayf-Cy-XjF"/>
-                        <outlet property="tfCalorie" destination="74R-RU-IWX" id="9XU-Ma-ghU"/>
+                        <outlet property="tfCalorie" destination="Yid-ps-v3p" id="kah-xo-MHs"/>
                         <outlet property="tfFoodName" destination="Hvt-Je-kkC" id="Qwh-cg-CMj"/>
-                        <outlet property="tfGram" destination="qJ0-0u-Qsf" id="pgQ-06-LZ1"/>
+                        <outlet property="tfGram" destination="qBt-yI-4FO" id="7MJ-nz-Njj"/>
                         <outlet property="vContent" destination="zia-bL-YKP" id="pGz-6n-Ere"/>
                         <outlet property="vDimmed" destination="xW9-gX-VWK" id="QVe-ph-7j9"/>
                     </connections>

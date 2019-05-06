@@ -11,12 +11,12 @@ import UIKit
 class PersonalFoodAddPopup: BasePopup {
 
 	@IBOutlet weak var tfFoodName: UITextField!
-	@IBOutlet weak var tfCalorie: UITextField!
-	@IBOutlet weak var tfGram: UITextField!
+	@IBOutlet weak var tfCalorie: UZTextField!
+	@IBOutlet weak var tfGram: UZTextField!
 	
 	@IBOutlet weak var btnConfirm: UIButton!
 	@IBOutlet weak var btnCancel: UIButton!
-	private var confirmClick: (() -> Void)?
+	private var confirmClick: ((_ foodName: String, _ calorie: Int, _ gram: Int) -> Void)?
 	private var cancelClick: (() -> Void)?
 
     override func viewDidLoad() {
@@ -29,6 +29,8 @@ class PersonalFoodAddPopup: BasePopup {
         // Do any additional setup after loading the view.
 		tfFoodName.attributedPlaceholder = NSAttributedString(string: "음식명을 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: 0x60DDB4, alpha: 0.7)])
 		tfFoodName.becomeFirstResponder()
+		tfCalorie.delegate = self
+		tfGram.delegate = self
     }
     
 	override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +65,7 @@ class PersonalFoodAddPopup: BasePopup {
     }
     */
 
-	func addActionConfirmClick(_ actionWithTitle: String?, handler ConfirmClick: @escaping () -> Void) {
+	func addActionConfirmClick(_ actionWithTitle: String?, handler ConfirmClick: @escaping (_ foodName: String, _ calorie: Int, _ gram: Int) -> Void) {
 		
 		btnConfirm.setTitle(actionWithTitle, for: .normal)
 		
@@ -110,7 +112,23 @@ class PersonalFoodAddPopup: BasePopup {
 	func callbackWithConfirm() {
 		
 		if let confirmAction = confirmClick {
-			confirmAction()
+			let strFoodName = tfFoodName.text
+			let strCalorie = tfCalorie.inputTextfield.text
+			let strGram = tfGram.inputTextfield.text
+			if strFoodName!.isEmpty {
+				tfFoodName.becomeFirstResponder()
+				return
+			}
+			if strCalorie!.isEmpty {
+				tfCalorie.inputTextfield.becomeFirstResponder()
+				return
+			}
+			if strGram!.isEmpty {
+				tfGram.inputTextfield.becomeFirstResponder()
+				return
+			}
+
+			confirmAction(strFoodName!, Int(strCalorie!)!, Int(strGram!)!)
 		}
 		
 		removeFromParentVC()
@@ -171,5 +189,35 @@ class PersonalFoodAddPopup: BasePopup {
 		BasePopup.addChildVC(popupVC)
 		
 		return popupVC!
+	}
+}
+
+extension PersonalFoodAddPopup: UZTextFieldDelegate {
+	func UZTextFieldShouldBeginEditing() -> Bool {
+		print("ViewController UZTextFieldShouldBeginEditing")
+		return true
+	}
+	
+	func UZTextFieldDidBeginEditing() {
+		print("ViewController UZTextFieldDidBeginEditing")
+		
+	}
+	
+	func UZTextFieldShouldEndEditing() -> Bool {
+		print("ViewController UZTextFieldShouldEndEditing")
+		return true
+	}
+	
+	func UZTextFieldDidEndEditing() {
+		print("ViewController UZTextFieldDidEndEditing")
+//		let text = self.textField.text
+//		print("text : \(text)")
+		
+	}
+	
+	func UZTextFieldShouldReturn() -> Bool {
+		print("ViewController textFieldShouldReturn")
+//		let _ = self.textField.resignFirstResponder()
+		return true
 	}
 }

@@ -18,6 +18,7 @@ class UZTextField: UIView {
     
     @IBInspectable var textSize: CGFloat = 0
 	@IBInspectable var keyboardType: Int = 0
+	@IBInspectable var marginRight:CGFloat = 0
     @IBInspectable var hint: String = ""
     @IBInspectable var lineHeight:CGFloat = 1
     
@@ -68,7 +69,9 @@ class UZTextField: UIView {
     }
 	
     private func setTextField(_ rect: CGRect) {
-        self.inputTextfield = UITextField.init(frame: self.bounds)
+		var frame = rect
+		frame.size.width = frame.width - marginRight
+        self.inputTextfield = UITextField.init(frame: frame)
         self.inputTextfield.font = UIFont.systemFont(ofSize: self.textSize)
 		self.inputTextfield.keyboardType = UIKeyboardType.init(rawValue: keyboardType)!
         self.inputTextfield.delegate = self

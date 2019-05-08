@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IX2-g9-VNn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z9A-Ma-614">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -113,10 +113,10 @@
             </objects>
             <point key="canvasLocation" x="1071.2" y="138.98050974512745"/>
         </scene>
-        <!--Weight Page View Controller-->
+        <!--Weight Main View Controller-->
         <scene sceneID="Tx6-Nt-3rq">
             <objects>
-                <viewController id="IX2-g9-VNn" customClass="WeightPageViewController" customModule="IntermittentFasting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeightMainViewController" id="IX2-g9-VNn" customClass="WeightMainViewController" customModule="IntermittentFasting" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mDx-0d-wnk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JEv-KU-0uZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060" y="945.87706146926541"/>
+            <point key="canvasLocation" x="3238" y="936"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="UL6-os-K3U">
@@ -1303,33 +1303,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yer-nB-MO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2481" y="936"/>
-        </scene>
-        <!--Weight Main View Controller-->
-        <scene sceneID="q3J-15-cBy">
-            <objects>
-                <viewController storyboardIdentifier="WeightMainViewController" id="csl-eK-c2X" customClass="WeightMainViewController" customModule="IntermittentFasting" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1p3-Xb-VMZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="몸무게 메인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRE-b4-FTI">
-                                <rect key="frame" x="119.5" y="70" width="136.5" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="eRE-b4-FTI" firstAttribute="centerX" secondItem="1p3-Xb-VMZ" secondAttribute="centerX" id="V7g-y3-4L4"/>
-                            <constraint firstItem="eRE-b4-FTI" firstAttribute="top" secondItem="58e-3N-PEc" secondAttribute="top" constant="50" id="YLn-wo-ThV"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="58e-3N-PEc"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ByF-Sh-NMH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3238" y="936"/>
         </scene>
         <!--Home Main View Controller-->
         <scene sceneID="Eaa-WJ-O97">

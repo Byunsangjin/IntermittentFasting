@@ -30,6 +30,7 @@ open class BalloonMarker: MarkerImage
         self.textColor = textColor
         self.insets = insets
         
+        
         _paragraphStyle = NSParagraphStyle.default.mutableCopy() as? NSMutableParagraphStyle
         _paragraphStyle?.alignment = .center
         super.init()
@@ -86,7 +87,7 @@ open class BalloonMarker: MarkerImage
         
         let offset = self.offsetForDrawing(atPoint: point)
         let size = self.size
-        
+    
         var rect = CGRect(
             origin: CGPoint(
                 x: point.x + offset.x,

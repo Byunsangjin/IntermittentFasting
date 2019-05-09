@@ -55,7 +55,7 @@ class CalendarManager {
 	}
 	
 	// 주간 긴문자
-	static func getWeekFullString(weekIndex:Int) -> String {
+	static func getWeekFullString(weekIndex: Int) -> String {
 		if weekIndex < 0 || weekIndex > 6 {
 			return ""
 		}
@@ -79,7 +79,7 @@ class CalendarManager {
     }
 	
     // 이번달 기준으로 value값을 가감 계산해준다.
-    static func getYearMonth(amount:Int) -> (year:Int, month:Int) {
+    static func getYearMonth(amount: Int) -> (year: Int, month: Int) {
         // 오늘날짜로 년월일을 구해준다.
         let date = Date()
         let calendar = Calendar.current
@@ -91,7 +91,7 @@ class CalendarManager {
     }
     
     // 선택한 년/월에서 계산해서 새로운 년/월을 반환해준다.
-    static func getYearMonth(year:Int, month:Int, amount:Int) -> (year:Int, month:Int) {
+    static func getYearMonth(year: Int, month: Int, amount: Int) -> (year: Int, month: Int) {
         
         // 반복 횟수
         var loopCount = amount
@@ -128,8 +128,39 @@ class CalendarManager {
         return (newYear, newMonth)
     }
     
+    // 오늘 날짜에서 가감을 해준다.
+    static func getYearMonthDay(amount: Int) -> (year: Int, month: Int, day: Int) {
+        // 오늘날짜로 년월일을 구해준다.
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        
+        return getYearMonthDay(year: year, month: month, day: day, amount: amount)
+    }
+    
+    // 파라메터 날짜에서 가감을 해준다.
+    static func getYearMonthDay(year: Int, month: Int, day: Int, amount: Int) -> (year: Int, month: Int, day: Int) {
+        var comps = DateComponents()
+        comps.year = year
+        comps.month = month
+        comps.day = day
+        
+        let calendar = Calendar.current
+        
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: amount, to: calendar.date(from: comps)!)!
+        
+        let newYear = calendar.component(.year, from: modifiedDate)
+        let newMonth = calendar.component(.month, from: modifiedDate)
+        let newDay = calendar.component(.day, from: modifiedDate)
+        return (newYear, newMonth, newDay)
+    }
+
+    
     // 년/월에 맞는 날짜 목록 얻어오기
-    static func getMonthToDays(year:Int, month:Int) -> [DayInfo] {
+    static func getMonthToDays(year: Int, month: Int) -> [DayInfo] {
                 
         // 선택한 달의 날짜 목록
         var arrCurentMoth:[DayInfo] = []

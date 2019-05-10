@@ -172,24 +172,76 @@
                                     <action selector="onFoodAddClick:" destination="vru-jh-F64" eventType="touchUpInside" id="eA2-46-jiP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gkm-S2-YWO">
+                                <rect key="frame" x="0.0" y="84" width="85" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7ok-Kb-iH3"/>
+                                    <constraint firstAttribute="width" constant="85" id="80k-xk-geE"/>
+                                </constraints>
+                                <state key="normal" title="tabbar show"/>
+                                <connections>
+                                    <action selector="onTabbarShowClick:" destination="vru-jh-F64" eventType="touchUpInside" id="CJ7-Kl-Gz8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcS-Bw-mic">
+                                <rect key="frame" x="0.0" y="114" width="85" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8Pq-x5-DKg"/>
+                                    <constraint firstAttribute="width" constant="85" id="fLc-vQ-gEh"/>
+                                </constraints>
+                                <state key="normal" title="tabbar show"/>
+                                <connections>
+                                    <action selector="onTabbarShow2Click:" destination="vru-jh-F64" eventType="touchUpInside" id="Yki-ff-AnE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPY-lL-ZHG">
+                                <rect key="frame" x="296" y="84" width="79" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="79" id="4Ya-5l-0vZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="t2Q-Bc-iz5"/>
+                                </constraints>
+                                <state key="normal" title="tabbar hide"/>
+                                <connections>
+                                    <action selector="onTabbarHideClick:" destination="vru-jh-F64" eventType="touchUpInside" id="rOh-wF-iJ4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxU-aZ-6Qi">
+                                <rect key="frame" x="296" y="114" width="79" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="eVG-bS-E9g"/>
+                                    <constraint firstAttribute="width" constant="79" id="j7D-Ff-lIz"/>
+                                </constraints>
+                                <state key="normal" title="tabbar hide"/>
+                                <connections>
+                                    <action selector="onTabbarHide2Click:" destination="vru-jh-F64" eventType="touchUpInside" id="SGf-iA-LoB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1z2-nF-sNY" firstAttribute="leading" secondItem="ppb-oU-KCH" secondAttribute="leading" id="3Dp-ne-dxz"/>
+                            <constraint firstItem="gcS-Bw-mic" firstAttribute="top" secondItem="Gkm-S2-YWO" secondAttribute="bottom" id="4jN-iZ-wHW"/>
                             <constraint firstItem="MnH-pK-fQl" firstAttribute="centerX" secondItem="aSR-n3-CPh" secondAttribute="centerX" id="AnZ-yS-SNy"/>
                             <constraint firstItem="swA-fk-x4d" firstAttribute="centerX" secondItem="aSR-n3-CPh" secondAttribute="centerX" id="BrE-YH-FU2"/>
                             <constraint firstItem="ppb-oU-KCH" firstAttribute="trailing" secondItem="caI-g7-mBf" secondAttribute="trailing" constant="16" id="CDd-vu-pBt"/>
+                            <constraint firstItem="uPY-lL-ZHG" firstAttribute="top" secondItem="1z2-nF-sNY" secondAttribute="bottom" id="HgC-SF-VUm"/>
                             <constraint firstItem="vnN-nE-wBh" firstAttribute="leading" secondItem="ppb-oU-KCH" secondAttribute="leading" id="IXX-rp-Lwj"/>
                             <constraint firstItem="vnN-nE-wBh" firstAttribute="trailing" secondItem="ppb-oU-KCH" secondAttribute="trailing" id="Juv-Wh-t2x"/>
                             <constraint firstItem="swA-fk-x4d" firstAttribute="top" secondItem="MnH-pK-fQl" secondAttribute="bottom" constant="13" id="KkB-S6-6x9"/>
                             <constraint firstItem="ppb-oU-KCH" firstAttribute="trailing" secondItem="sIJ-LV-h7w" secondAttribute="trailing" constant="20" id="Kom-hS-YAl"/>
                             <constraint firstItem="1z2-nF-sNY" firstAttribute="top" secondItem="ppb-oU-KCH" secondAttribute="top" id="OS4-6E-H1e"/>
+                            <constraint firstItem="Gkm-S2-YWO" firstAttribute="top" secondItem="1z2-nF-sNY" secondAttribute="bottom" id="P7Y-J0-8Vh"/>
                             <constraint firstItem="MnH-pK-fQl" firstAttribute="top" secondItem="1z2-nF-sNY" secondAttribute="bottom" constant="7" id="S5J-du-JKK"/>
                             <constraint firstItem="5fj-jU-cqJ" firstAttribute="width" secondItem="aSR-n3-CPh" secondAttribute="width" id="SkL-nQ-qVr"/>
                             <constraint firstItem="vnN-nE-wBh" firstAttribute="top" secondItem="sIJ-LV-h7w" secondAttribute="bottom" constant="12" id="WO9-rl-fT8"/>
+                            <constraint firstItem="ppb-oU-KCH" firstAttribute="trailing" secondItem="uPY-lL-ZHG" secondAttribute="trailing" id="Xu1-fJ-u2t"/>
+                            <constraint firstItem="nxU-aZ-6Qi" firstAttribute="trailing" secondItem="ppb-oU-KCH" secondAttribute="trailing" id="Zss-CR-Y5k"/>
+                            <constraint firstItem="gcS-Bw-mic" firstAttribute="leading" secondItem="ppb-oU-KCH" secondAttribute="leading" id="c3C-Db-bfQ"/>
                             <constraint firstItem="sIJ-LV-h7w" firstAttribute="top" secondItem="MnH-pK-fQl" secondAttribute="bottom" constant="5" id="dyB-vV-znK"/>
                             <constraint firstItem="sIJ-LV-h7w" firstAttribute="leading" secondItem="ppb-oU-KCH" secondAttribute="leading" constant="20" id="gvI-Od-HRm"/>
                             <constraint firstItem="1z2-nF-sNY" firstAttribute="trailing" secondItem="ppb-oU-KCH" secondAttribute="trailing" id="nvc-ly-qtG"/>
+                            <constraint firstItem="Gkm-S2-YWO" firstAttribute="leading" secondItem="ppb-oU-KCH" secondAttribute="leading" id="rxy-vP-kbI"/>
+                            <constraint firstItem="nxU-aZ-6Qi" firstAttribute="top" secondItem="uPY-lL-ZHG" secondAttribute="bottom" id="ugV-ph-WFF"/>
                             <constraint firstItem="ppb-oU-KCH" firstAttribute="bottom" secondItem="caI-g7-mBf" secondAttribute="bottom" constant="15" id="z2b-Sn-fPW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ppb-oU-KCH"/>

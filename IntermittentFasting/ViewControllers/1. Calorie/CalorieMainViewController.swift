@@ -165,7 +165,31 @@ class CalorieMainViewController: UIViewController {
             self.present(foodAddVC, animated: true, completion: nil)
         }
     }
-    
+	
+	@IBAction func onTabbarShowClick(_ sender: UIButton) {
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showTabbar"),
+										object: nil,
+										userInfo: ["isHidden": false, "isAnimation": true])
+	}
+	
+	@IBAction func onTabbarHideClick(_ sender: UIButton) {
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showTabbar"),
+										object: nil,
+										userInfo: ["isHidden": true, "isAnimation": true])
+	}
+	
+	@IBAction func onTabbarShow2Click(_ sender: UIButton) {
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showTabbar"),
+										object: nil,
+										userInfo: ["isHidden": false, "isAnimation": false])
+	}
+	
+	@IBAction func onTabbarHide2Click(_ sender: UIButton) {
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showTabbar"),
+										object: nil,
+										userInfo: ["isHidden": true, "isAnimation": false])
+	}
+	
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         self.vWaveGage!.updateFrame(value: sender.value)
     }

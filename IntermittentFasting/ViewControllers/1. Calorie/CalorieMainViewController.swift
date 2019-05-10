@@ -10,6 +10,10 @@ import UIKit
 
 class CalorieMainViewController: UIViewController {
 
+	// 오늘 날짜
+//	var currentDate: (year: Int, month: Int, day: Int) = CalendarManager.getYearMonthDay(amount: 0)
+	
+	
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var vWaveGage: WaveProgressView!
     @IBOutlet weak var lbCalorie: UILabel!
@@ -75,8 +79,7 @@ class CalorieMainViewController: UIViewController {
         
         // GUI 초기화
         vWaveGage!.initGUI(color: UIColor.black)
-//        vWaveGage!.initGUI(color: UIColor.init(hex: 0x60DDB4))
-        
+		
         // 화면 갱신
         updateScreen()
 		
@@ -91,11 +94,18 @@ class CalorieMainViewController: UIViewController {
 			view.removeFromSuperview()
 		}
 		
+		// 선택한 년월일 튜플로 변환
+		let currentDate = CalendarManager.getSelectedYearMonthDay()
+		
 		// 스크롤뷰 셀 추가
 		let storyboard: UIStoryboard? = AppDelegate.sharedNamedStroyBoard("Sama73") as? UIStoryboard
 		for i in 0 ..< 3 {
 			let subVC = storyboard?.instantiateViewController(withIdentifier: "FoodListViewController") as? FoodListViewController
-			subVC!.currentDate = CalendarManager.getYearMonthDay(amount: i - 1)
+			subVC!.currentDate = CalendarManager.getYearMonthDay(year: currentDate.year,
+																 month: currentDate.month,
+																 day: currentDate.day,
+																 amount: i - 1)
+
 			var frame = scrollView.bounds
 			frame.size.width = kSubViewWidth
 			subVC!.view.frame = frame
@@ -152,6 +162,15 @@ class CalorieMainViewController: UIViewController {
 
         let popupVC = CalendarPopup.calendarPopup()
         popupVC.addActionConfirmClick { (year, month, day) in
+			// 음식리스트 갱신
+			for i in 0..<self.arrSubCell.count {
+				let vSubCell = self.arrSubCell[i]
+				if let subVC: FoodListViewController = self.getSelectedViewController(vSubCell) {
+					subVC.currentDate =  CalendarManager.getYearMonthDay(year: year, month: month, day: day, amount: i - 1)
+					subVC.updateScreen()
+				}
+			}
+			
             // 화면 갱신
             self.updateScreen()
         }
@@ -198,6 +217,18 @@ class CalorieMainViewController: UIViewController {
 
 
 extension CalorieMainViewController: UIScrollViewDelegate {
+	
+	// 선택한 뷰로 VC찾아오기
+	func getSelectedViewController(_ view: UIView) -> FoodListViewController? {
+		for subVC in arrSubCheild {
+			if subVC.view == view {
+				return subVC
+			}
+		}
+		
+		return nil
+	}
+	
 	// 서브셀 위치 재설정
 	// move = -1 : 이전 페이지 이동
 	// move = 0 : 현재 페이지
@@ -232,17 +263,8 @@ extension CalorieMainViewController: UIScrollViewDelegate {
 		arrSubCell.insert(subCellLast!, at: 0)
 		
 		// 새로 추가되는 셀 날짜 설정
-		var subLastVC: FoodListViewController?
-		var subCenterVC: FoodListViewController?
-		for subVC in arrSubCheild {
-			if subVC.view == subCellLast {
-				subLastVC = subVC
-			}
-			else if subVC.view == subCellCenter {
-				subCenterVC = subVC
-			}
-		}
-		
+		let subLastVC: FoodListViewController? = getSelectedViewController(subCellLast!)
+		let subCenterVC: FoodListViewController? = getSelectedViewController(subCellCenter!)
 		if let subLastVC = subLastVC, let subCenterVC = subCenterVC {
 			let curDate = subCenterVC.currentDate!
 			subLastVC.currentDate =  CalendarManager.getYearMonthDay(year: curDate.year, month: curDate.month, day: curDate.day, amount: -1)
@@ -261,17 +283,8 @@ extension CalorieMainViewController: UIScrollViewDelegate {
 		arrSubCell.append(subCellFirst)
 		
 		// 새로 추가되는 셀 날짜 설정
-		var subFirstVC: FoodListViewController?
-		var subCenterVC: FoodListViewController?
-		for subVC in arrSubCheild {
-			if subVC.view == subCellFirst {
-				subFirstVC = subVC
-			}
-			else if subVC.view == subCellCenter {
-				subCenterVC = subVC
-			}
-		}
-		
+		let subFirstVC: FoodListViewController? = getSelectedViewController(subCellFirst)
+		let subCenterVC: FoodListViewController? = getSelectedViewController(subCellCenter!)
 		if let subFirstVC = subFirstVC, let subCenterVC = subCenterVC {
 			let curDate = subCenterVC.currentDate!
 			subFirstVC.currentDate =  CalendarManager.getYearMonthDay(year: curDate.year, month: curDate.month, day: curDate.day, amount: 2)
@@ -326,7 +339,12 @@ extension CalorieMainViewController: UIScrollViewDelegate {
 			UIView.animate(withDuration: 0.25, delay: 0, options: .curveLinear, animations: {
 				scrollView.contentOffset = CGPoint(x: self.kSubViewWidth - scrollView.contentInset.left, y: 0)
 			}) { finished in
-				print("인덱스")
+				let subCenterVC: FoodListViewController? = self.getSelectedViewController(self.arrSubCell[1])
+				if let subCenterVC = subCenterVC {
+					CalendarManager.curSelectedDay = subCenterVC.currentDate!.year * 10000 + subCenterVC.currentDate!.month * 100 + subCenterVC.currentDate!.day
+					// 화면 갱신
+					self.updateScreen()
+				}
 			}
 			//            scrollView.setContentOffset(CGPoint(x: self.kSubViewWidth - scrollView.contentInset.left, y: 0), animated: true)
 		}

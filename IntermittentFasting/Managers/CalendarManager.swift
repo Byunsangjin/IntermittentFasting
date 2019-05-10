@@ -40,7 +40,7 @@ struct DayInfo {
 class CalendarManager {
     
     // 날짜 선택
-    static var curSelectedDay: Int = -1
+    static var curSelectedDay: Int = CalendarManager.getTodayIndex()
     static var newSelectedDay: Int = -1
 		
 	// 월간 문자
@@ -127,6 +127,18 @@ class CalendarManager {
         
         return (newYear, newMonth)
     }
+	
+	// 선택한 년월일 튜플로 변환
+	static func getSelectedYearMonthDay() -> (year: Int, month: Int, day: Int) {
+		
+		// 선택 날짜 초기화
+		let YYYYMMDD: String = "\(CalendarManager.curSelectedDay)"
+		let year: Int = Int(YYYYMMDD.left(4))!
+		let month: Int = Int(YYYYMMDD.mid(4, amount: 2))!
+		let day: Int = Int(YYYYMMDD.right(2))!
+
+		return (year, month, day)
+	}
     
     // 오늘 날짜에서 가감을 해준다.
     static func getYearMonthDay(amount: Int) -> (year: Int, month: Int, day: Int) {

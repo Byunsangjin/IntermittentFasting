@@ -23,7 +23,7 @@ class TimePickerViewController: UIViewController {
         self.parentVC = self.parent as? SelectWayViewController
         parentVC!.timeLabel.forEach { (label) in
             if label.tag == 1 { // 선택된 라벨
-                timePicker.date = Date().stringToDate(from: label.text!)
+                timePicker.date = Date().stringToTime(from: label.text!)
             }
         }
     }
@@ -47,7 +47,7 @@ class TimePickerViewController: UIViewController {
     @IBAction func pickerValueChange(_ sender: UIDatePicker) {
         parentVC!.timeLabel.forEach { (label) in
             if label.tag == 1 { // 선택된 라벨
-                label.text = sender.date.dateToString()
+                label.text = sender.date.timeToString()
             }
         }
     }

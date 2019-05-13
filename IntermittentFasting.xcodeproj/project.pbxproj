@@ -60,6 +60,7 @@
 		D904E6EF227EF98000972950 /* AlertMessagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904E6EE227EF97F00972950 /* AlertMessagePopup.swift */; };
 		D904E6F1227F04EB00972950 /* PersonalFoodAddPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904E6F0227F04EB00972950 /* PersonalFoodAddPopup.swift */; };
 		D9333948227FEEF0003B9475 /* UZTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9333947227FEEF0003B9475 /* UZTextField.swift */; };
+		D9C2B62D22844CDA00472B5E /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C2B62C22844CDA00472B5E /* FoodListViewController.swift */; };
 		D9D94FB3227DA4CD00E50069 /* icon_home_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D94F90227DA4CD00E50069 /* icon_home_on@3x.png */; };
 		D9D94FB4227DA4CD00E50069 /* btn_next@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D94F91227DA4CD00E50069 /* btn_next@3x.png */; };
 		D9D94FB5227DA4CD00E50069 /* icon_personal_settings_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D94F92227DA4CD00E50069 /* icon_personal_settings_off@3x.png */; };
@@ -174,6 +175,7 @@
 		D904E6EE227EF97F00972950 /* AlertMessagePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertMessagePopup.swift; sourceTree = "<group>"; };
 		D904E6F0227F04EB00972950 /* PersonalFoodAddPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalFoodAddPopup.swift; sourceTree = "<group>"; };
 		D9333947227FEEF0003B9475 /* UZTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UZTextField.swift; sourceTree = "<group>"; };
+		D9C2B62C22844CDA00472B5E /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		D9D94F90227DA4CD00E50069 /* icon_home_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_home_on@3x.png"; sourceTree = "<group>"; };
 		D9D94F91227DA4CD00E50069 /* btn_next@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_next@3x.png"; sourceTree = "<group>"; };
 		D9D94F92227DA4CD00E50069 /* icon_personal_settings_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_personal_settings_off@3x.png"; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 			isa = PBXGroup;
 			children = (
 				D9D94FE3227DA4EB00E50069 /* CalorieMainViewController.swift */,
+				D9C2B62C22844CDA00472B5E /* FoodListViewController.swift */,
 				D9D94FE2227DA4EB00E50069 /* FoodAddViewController.swift */,
 				D9D94FE4227DA4EB00E50069 /* FoodFindViewController.swift */,
 				D9D94FE5227DA4EB00E50069 /* PersonalFoodViewController.swift */,
@@ -802,6 +805,7 @@
 				D9D9500E227DA51700E50069 /* CalendarDayCell.swift in Sources */,
 				D9D94FFF227DA50500E50069 /* String+Substring.swift in Sources */,
 				D9D94FFA227DA4F700E50069 /* ViewPagerContent.swift in Sources */,
+				D9C2B62D22844CDA00472B5E /* FoodListViewController.swift in Sources */,
 				D9D95010227DA51700E50069 /* CalendarPopup.swift in Sources */,
 				D9D94FF0227DA4EB00E50069 /* PersonalFoodViewController.swift in Sources */,
 				D9D94FEE227DA4EB00E50069 /* CalorieMainViewController.swift in Sources */,
@@ -975,7 +979,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GN3PLAKW34;
+				DEVELOPMENT_TEAM = TXUZ6595T4;
 				INFOPLIST_FILE = IntermittentFasting/Supporting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -995,7 +999,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GN3PLAKW34;
+				DEVELOPMENT_TEAM = TXUZ6595T4;
 				INFOPLIST_FILE = IntermittentFasting/Supporting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

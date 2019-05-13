@@ -45,6 +45,7 @@ class InputInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        
     }
     
     
@@ -109,6 +110,10 @@ class InputInfoViewController: UIViewController {
             
             self.bottomConstraint.constant = keyboardShowHeight
             self.topConstraint.constant = -keyboardShowHeight
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.layoutIfNeeded()
+            }
         }
     }
     
@@ -117,6 +122,10 @@ class InputInfoViewController: UIViewController {
     @objc func keyboardWillHide(_ notification: Notification) {
         self.bottomConstraint.constant = 0
         self.topConstraint.constant = 0
+        
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     

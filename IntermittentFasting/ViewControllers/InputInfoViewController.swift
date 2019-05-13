@@ -33,6 +33,7 @@ class InputInfoViewController: UIViewController {
     
     @IBOutlet var nextBtnView: GradationView!
     
+    @IBOutlet var birthLabel: UILabel!
     
     
     
@@ -60,8 +61,16 @@ class InputInfoViewController: UIViewController {
         self.mainView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
         self.nextBtnView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(nextBtnClick)))
         
+        birthLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(birthLabelClick)))
+        
         // 신장 텍스트필드
         heightTextField.rx.text.orEmpty
+            .map({ str in
+                if str.count > 3 {
+                    self.heightTextField.text = str.left(3)
+                }
+                return str
+            })
             .map(isTextFieldEmpty)
             .subscribe(onNext: { b in
                 self.heightWarningImg.isHidden = !b
@@ -70,6 +79,12 @@ class InputInfoViewController: UIViewController {
         
         // 체중 텍스트필드
         weightTextField.rx.text.orEmpty
+            .map({ str in
+                if str.count > 3 {
+                    self.heightTextField.text = "300"
+                }
+                return str
+            })
             .map(isTextFieldEmpty)
             .subscribe(onNext: { b in
                 self.weightWarningImg.isHidden = !b
@@ -139,6 +154,17 @@ class InputInfoViewController: UIViewController {
     @objc func nextBtnClick() {
         let selectWayVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectWayViewController") as! SelectWayViewController
         self.present(selectWayVC, animated: true)
+    }
+    
+    
+    
+    @objc func birthLabelClick() {
+        let datePickerVC = self.storyboard?.instantiateViewController(withIdentifier: "DatePickerViewController") as! DatePickerViewController
+        
+        self.addChild(datePickerVC)
+        self.view.addSubview(datePickerVC.view)
+        
+        datePickerVC.datePicker.date = Date().stringToDate(from: birthLabel.text!)
     }
     
     

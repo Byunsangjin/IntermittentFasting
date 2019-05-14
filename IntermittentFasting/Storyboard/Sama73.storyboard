@@ -430,8 +430,85 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwR-VX-rbT" customClass="RoundLineView" customModule="IntermittentFasting" customModuleProvider="target">
                                 <rect key="frame" x="11" y="20" width="353" height="208"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DO-N5-D90" userLabel="Food Not Empty">
+                                        <rect key="frame" x="82" y="45.5" width="189" height="117.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_not_foodlist.png" translatesAutoresizingMaskIntoConstraints="NO" id="lCR-K3-dQ3">
+                                                <rect key="frame" x="71.5" y="0.0" width="46.5" height="79"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="드신 음식을 추가시켜 주세요:)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BT2-io-rU6">
+                                                <rect key="frame" x="0.0" y="98" width="189" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <color key="textColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="lCR-K3-dQ3" firstAttribute="top" secondItem="9DO-N5-D90" secondAttribute="top" id="6kK-my-HWc"/>
+                                            <constraint firstAttribute="bottom" secondItem="BT2-io-rU6" secondAttribute="bottom" id="GP8-Ai-2ZZ"/>
+                                            <constraint firstItem="BT2-io-rU6" firstAttribute="leading" secondItem="9DO-N5-D90" secondAttribute="leading" id="Jfk-KV-erd"/>
+                                            <constraint firstItem="lCR-K3-dQ3" firstAttribute="centerX" secondItem="9DO-N5-D90" secondAttribute="centerX" id="LCn-ge-aoV"/>
+                                            <constraint firstAttribute="trailing" secondItem="BT2-io-rU6" secondAttribute="trailing" id="STn-jg-IKG"/>
+                                            <constraint firstItem="BT2-io-rU6" firstAttribute="top" secondItem="lCR-K3-dQ3" secondAttribute="bottom" constant="19" id="WGH-gD-Z9e"/>
+                                            <constraint firstItem="BT2-io-rU6" firstAttribute="centerX" secondItem="9DO-N5-D90" secondAttribute="centerX" id="WQl-zW-kfU"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8vi-jL-0Q0">
+                                        <rect key="frame" x="0.0" y="2" width="353" height="204"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FoodListTableViewCell" rowHeight="55" id="62b-IZ-2mV" customClass="FoodListTableViewCell" customModule="IntermittentFasting" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="353" height="55"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="62b-IZ-2mV" id="mSf-QB-hg6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="55"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EyN-DL-xmb" userLabel="bottom_line">
+                                                            <rect key="frame" x="19" y="54.5" width="315" height="0.5"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.098039215686274508" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="0.5" id="kx1-vG-RfO"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="130 kcal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-Fq-aWZ">
+                                                            <rect key="frame" x="232" y="18.5" width="61" height="18"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연어샐러드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGD-Qm-xGK">
+                                                            <rect key="frame" x="60" y="18.5" width="65" height="18"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="EyN-DL-xmb" firstAttribute="leading" secondItem="mSf-QB-hg6" secondAttribute="leading" constant="19" id="4W1-Dl-SyG"/>
+                                                        <constraint firstItem="fQA-Fq-aWZ" firstAttribute="centerY" secondItem="mSf-QB-hg6" secondAttribute="centerY" id="A9a-4a-dlQ"/>
+                                                        <constraint firstItem="AGD-Qm-xGK" firstAttribute="centerY" secondItem="mSf-QB-hg6" secondAttribute="centerY" id="DYu-hc-ygT"/>
+                                                        <constraint firstItem="AGD-Qm-xGK" firstAttribute="leading" secondItem="mSf-QB-hg6" secondAttribute="leading" constant="60" id="PkG-mt-HHH"/>
+                                                        <constraint firstAttribute="trailing" secondItem="EyN-DL-xmb" secondAttribute="trailing" constant="19" id="XJV-yB-lXd"/>
+                                                        <constraint firstAttribute="trailing" secondItem="fQA-Fq-aWZ" secondAttribute="trailing" constant="60" id="ZUb-mn-BOQ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="EyN-DL-xmb" secondAttribute="bottom" id="cDO-kp-G38"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="lbCalorie" destination="fQA-Fq-aWZ" id="mtM-a5-Nfa"/>
+                                                    <outlet property="lbFoodName" destination="AGD-Qm-xGK" id="cTL-oB-Vou"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="pf7-UI-o1s" id="2Kc-cf-2wb"/>
+                                            <outlet property="delegate" destination="pf7-UI-o1s" id="Grv-xh-mw0"/>
+                                        </connections>
+                                    </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAu-hH-MT1">
-                                        <rect key="frame" x="172.5" y="20" width="8" height="21"/>
+                                        <rect key="frame" x="172.5" y="2" width="8" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -439,9 +516,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="pAu-hH-MT1" firstAttribute="top" secondItem="uwR-VX-rbT" secondAttribute="top" constant="20" id="L1s-1O-8aR"/>
+                                    <constraint firstItem="9DO-N5-D90" firstAttribute="centerX" secondItem="uwR-VX-rbT" secondAttribute="centerX" id="6lO-Ac-6k8"/>
+                                    <constraint firstAttribute="trailing" secondItem="8vi-jL-0Q0" secondAttribute="trailing" id="FhQ-wQ-ZHX"/>
+                                    <constraint firstItem="9DO-N5-D90" firstAttribute="centerY" secondItem="uwR-VX-rbT" secondAttribute="centerY" id="Kow-vd-T8h"/>
+                                    <constraint firstItem="pAu-hH-MT1" firstAttribute="top" secondItem="uwR-VX-rbT" secondAttribute="top" constant="2" id="L1s-1O-8aR"/>
+                                    <constraint firstItem="8vi-jL-0Q0" firstAttribute="top" secondItem="uwR-VX-rbT" secondAttribute="top" constant="2" id="Vyf-pW-hkJ"/>
                                     <constraint firstAttribute="height" constant="208" id="YFB-w2-bUY"/>
+                                    <constraint firstAttribute="bottom" secondItem="8vi-jL-0Q0" secondAttribute="bottom" constant="2" id="YdA-gT-ipy"/>
                                     <constraint firstItem="pAu-hH-MT1" firstAttribute="centerX" secondItem="uwR-VX-rbT" secondAttribute="centerX" id="imF-4A-xyw"/>
+                                    <constraint firstItem="8vi-jL-0Q0" firstAttribute="leading" secondItem="uwR-VX-rbT" secondAttribute="leading" id="kDV-Tz-uGe"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -466,17 +549,19 @@
                     </view>
                     <connections>
                         <outlet property="lbTitle" destination="pAu-hH-MT1" id="m2y-tY-2hi"/>
+                        <outlet property="tableView" destination="8vi-jL-0Q0" id="su9-ye-vOT"/>
                         <outlet property="vContent" destination="uwR-VX-rbT" id="GO9-cR-Tg8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMg-e7-n5X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1409" y="1757"/>
+            <point key="canvasLocation" x="1408.8" y="1756.3718140929536"/>
         </scene>
     </scenes>
     <resources>
         <image name="btn_calendar.png" width="25.5" height="28.5"/>
         <image name="btn_close.png" width="23" height="23"/>
         <image name="btn_food_add.png" width="57" height="57"/>
+        <image name="icon_not_foodlist.png" width="46.5" height="79"/>
     </resources>
 </document>

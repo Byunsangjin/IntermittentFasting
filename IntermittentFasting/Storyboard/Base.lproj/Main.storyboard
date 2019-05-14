@@ -1126,9 +1126,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnF-Wd-zlW">
                                         <rect key="frame" x="75" y="0.0" width="75" height="64"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Uf-z3-pEW">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Uf-z3-pEW">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="64"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="-16" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" image="icon_weight_off.png"/>
                                                 <state key="selected" image="icon_weight_on.png"/>
@@ -1145,6 +1144,10 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="2Uf-z3-pEW" firstAttribute="top" secondItem="tnF-Wd-zlW" secondAttribute="top" id="3fz-bt-c4M"/>
+                                            <constraint firstAttribute="trailing" secondItem="2Uf-z3-pEW" secondAttribute="trailing" id="634-2d-Dh4"/>
+                                            <constraint firstItem="2Uf-z3-pEW" firstAttribute="leading" secondItem="tnF-Wd-zlW" secondAttribute="leading" id="IMw-lp-J3s"/>
+                                            <constraint firstAttribute="bottom" secondItem="2Uf-z3-pEW" secondAttribute="bottom" id="aod-I1-stf"/>
                                             <constraint firstItem="qat-3w-PPa" firstAttribute="centerX" secondItem="tnF-Wd-zlW" secondAttribute="centerX" id="e2d-pR-AEC"/>
                                             <constraint firstAttribute="bottom" secondItem="qat-3w-PPa" secondAttribute="bottom" constant="8" id="rrf-i4-D1G"/>
                                         </constraints>

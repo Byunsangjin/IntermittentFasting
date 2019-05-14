@@ -69,6 +69,7 @@
 		D902E8DB228A92C300759558 /* icon_not_foodlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D902E8D1228A92C300759558 /* icon_not_foodlist@2x.png */; };
 		D902E8DC228A92C300759558 /* icon_not_foodadd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D902E8D2228A92C300759558 /* icon_not_foodadd@2x.png */; };
 		D902E8DE228A95C900759558 /* FoodListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902E8DD228A95C900759558 /* FoodListTableViewCell.swift */; };
+		D902E8E0228AB02900759558 /* FoodSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902E8DF228AB02900759558 /* FoodSearchTableViewCell.swift */; };
 		D904E6EF227EF98000972950 /* AlertMessagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904E6EE227EF97F00972950 /* AlertMessagePopup.swift */; };
 		D904E6F1227F04EB00972950 /* PersonalFoodAddPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904E6F0227F04EB00972950 /* PersonalFoodAddPopup.swift */; };
 		D9333948227FEEF0003B9475 /* UZTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9333947227FEEF0003B9475 /* UZTextField.swift */; };
@@ -196,6 +197,7 @@
 		D902E8D1228A92C300759558 /* icon_not_foodlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_not_foodlist@2x.png"; sourceTree = "<group>"; };
 		D902E8D2228A92C300759558 /* icon_not_foodadd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_not_foodadd@2x.png"; sourceTree = "<group>"; };
 		D902E8DD228A95C900759558 /* FoodListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListTableViewCell.swift; sourceTree = "<group>"; };
+		D902E8DF228AB02900759558 /* FoodSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchTableViewCell.swift; sourceTree = "<group>"; };
 		D904E6EE227EF97F00972950 /* AlertMessagePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertMessagePopup.swift; sourceTree = "<group>"; };
 		D904E6F0227F04EB00972950 /* PersonalFoodAddPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalFoodAddPopup.swift; sourceTree = "<group>"; };
 		D9333947227FEEF0003B9475 /* UZTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UZTextField.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				D9D94FE4227DA4EB00E50069 /* FoodFindViewController.swift */,
 				D9D94FE5227DA4EB00E50069 /* PersonalFoodViewController.swift */,
 				D9D94FE6227DA4EB00E50069 /* BookMarkViewController.swift */,
+				D902E8DF228AB02900759558 /* FoodSearchTableViewCell.swift */,
 			);
 			path = "1. Calorie";
 			sourceTree = "<group>";
@@ -874,6 +877,7 @@
 				60BA7A1F22850DBF009B574F /* UIView+Corner.swift in Sources */,
 				D9D94FFD227DA4F700E50069 /* WaveProgressView.swift in Sources */,
 				D9333948227FEEF0003B9475 /* UZTextField.swift in Sources */,
+				D902E8E0228AB02900759558 /* FoodSearchTableViewCell.swift in Sources */,
 				6080EEFD2273064800968D0E /* Date+String.swift in Sources */,
 				605B40852266F128006D723A /* Gradation.swift in Sources */,
 				606A40ED2264CE42004B9329 /* AppDelegate.swift in Sources */,

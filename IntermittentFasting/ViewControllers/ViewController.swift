@@ -27,5 +27,14 @@ class ViewController: UIViewController {
         
         self.present(inputInfoVC, animated: true)
     }
+    
+    
+    
+    @IBAction func infoBtnClick(_ sender: Any) {
+        let infoPageVC = self.storyboard?.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
+        
+        self.addChild(infoPageVC)
+        self.view.addSubview(infoPageVC.view)
+    }
 }
 

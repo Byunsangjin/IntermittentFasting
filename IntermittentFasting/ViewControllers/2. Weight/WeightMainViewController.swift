@@ -12,11 +12,15 @@ import Charts
 class WeightMainViewController: UIViewController, ChartViewDelegate {
     // MARK:- Outlets
     @IBOutlet var chartView: LineChartView!
+    @IBOutlet var dateLabel: UILabel!
     
     
     
     // MARK:- Variables
     
+    
+    
+    // MARK:- Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         chartView.delegate = self
@@ -80,8 +84,6 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
         for set in chartView.data!.dataSets as! [LineChartDataSet] {
             set.mode = (set.mode == .cubicBezier) ? .horizontalBezier : .cubicBezier
         }
-        
-        
     }
     
     func setDataCount(_ count: Int, range: UInt32) {
@@ -118,6 +120,29 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
         chartView.data = data
     }
     
+    
+    
+    // MARK:- Actions
+    @IBAction func calendarBtnClick(_ sender: Any) {
+        CalendarManager.curSelectedDay = CalendarManager.getTodayIndex()
+        CalendarManager.newSelectedDay = CalendarManager.curSelectedDay
+        
+        let popupVC = CalendarPopup.calendarPopup()
+        popupVC.addActionConfirmClick { (year, month, day) in
+            self.dateLabel.text = "\(year)년 \(month)월 \(day)일"
+            // 화면 갱신
+//            self.updateScreen()
+        }
+    }
+    
+    
+    
+    @IBAction func addWeightBtnClick(_ sender: Any) {
+        let addWeightAlertVC = self.storyboard?.instantiateViewController(withIdentifier: "AddWeightAlertViewController") as! AddWeightAlertViewController
+        
+        self.addChild(addWeightAlertVC)
+        self.view.addSubview(addWeightAlertVC.view)
+    }
     
 }
 

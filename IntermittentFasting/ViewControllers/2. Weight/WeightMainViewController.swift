@@ -11,8 +11,10 @@ import Charts
 
 class WeightMainViewController: UIViewController, ChartViewDelegate {
     // MARK:- Outlets
+    @IBOutlet var titleLabel: UILabel!
+    
     @IBOutlet var chartView: LineChartView!
-    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var weightLabel: UILabel!
     
     
     
@@ -84,6 +86,10 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
         for set in chartView.data!.dataSets as! [LineChartDataSet] {
             set.mode = (set.mode == .cubicBezier) ? .horizontalBezier : .cubicBezier
         }
+        
+        
+        
+        self.titleLabel.text = Date().dateToString()
     }
     
     func setDataCount(_ count: Int, range: UInt32) {
@@ -124,12 +130,12 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
     
     // MARK:- Actions
     @IBAction func calendarBtnClick(_ sender: Any) {
-        CalendarManager.curSelectedDay = CalendarManager.getTodayIndex()
-        CalendarManager.newSelectedDay = CalendarManager.curSelectedDay
+//        CalendarManager.curSelectedDay = CalendarManager.getTodayIndex()
+//        CalendarManager.newSelectedDay = CalendarManager.curSelectedDay
         
         let popupVC = CalendarPopup.calendarPopup()
         popupVC.addActionConfirmClick { (year, month, day) in
-            self.dateLabel.text = "\(year)년 \(month)월 \(day)일"
+            self.titleLabel.text = "\(year)년 \(month)월 \(day)일"
             // 화면 갱신
 //            self.updateScreen()
         }

@@ -86,10 +86,12 @@ class AddWeightAlertViewController: UIViewController {
     
     // MARK:- Actions
     @IBAction func okBtnClick(_ sender: Any) {
+        
     }
     
     
     
     @IBAction func cancelBtnClick(_ sender: Any) {
+        
     }
 }

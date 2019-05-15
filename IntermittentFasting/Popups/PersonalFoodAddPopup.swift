@@ -52,6 +52,7 @@ class PersonalFoodAddPopup: BasePopup {
 		NotificationCenter.default.removeObserver(self)
 		
 		super.viewWillDisappear(animated)
+		
 	}
 	
     /*

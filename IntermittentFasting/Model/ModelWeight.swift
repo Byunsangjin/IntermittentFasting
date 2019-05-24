@@ -9,7 +9,11 @@
 import Realm
 import RealmSwift
 
-class ModelWeight: Object {
+class ModelWeight: Object {    
     @objc dynamic var date = ""
     @objc dynamic var weight = 0.0
+    
+    override static func primaryKey() -> String? {
+        return "date"
+    }
 }

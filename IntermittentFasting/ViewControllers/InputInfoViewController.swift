@@ -43,8 +43,9 @@ class InputInfoViewController: UIViewController {
     
     
     // MARK:- Methods
-    override func viewDidLoad() {
+    override func viewDidLoad() {        
         super.viewDidLoad()
+        print("Weight View DidLoad")
         setUI()
         
     }
@@ -53,6 +54,8 @@ class InputInfoViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         disposeBag = DisposeBag()
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
     
@@ -98,7 +101,7 @@ class InputInfoViewController: UIViewController {
             name: UIResponder.keyboardWillShowNotification,
             object: nil
         )
-        
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillHide(_:)),
@@ -116,6 +119,7 @@ class InputInfoViewController: UIViewController {
     
     
     @objc func keyboardWillShow(_ notification: Notification) {
+        print("input")
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height

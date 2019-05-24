@@ -21,14 +21,13 @@ class PersonalFoodAddPopup: BasePopup {
 
     override func viewDidLoad() {
 		
-		// 딤드뷰 클릭시 팝업 닫아 주는 기능 막기
-		self.isNotDimmedTouch = true;
-
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
 		tfFoodName.attributedPlaceholder = NSAttributedString(string: "음식명을 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: 0x60DDB4, alpha: 0.7)])
-		tfFoodName.becomeFirstResponder()
+		// 스케쥴 시작
+		self.perform(#selector(self.FirstTextFieldFocus), with: nil, afterDelay: 0.1)
+
 		tfCalorie.delegate = self
 		tfGram.delegate = self
     }
@@ -53,6 +52,7 @@ class PersonalFoodAddPopup: BasePopup {
 		NotificationCenter.default.removeObserver(self)
 		
 		super.viewWillDisappear(animated)
+		
 	}
 	
     /*
@@ -65,6 +65,11 @@ class PersonalFoodAddPopup: BasePopup {
     }
     */
 
+	// 실행후 최초 포커싱
+	@objc func FirstTextFieldFocus() {
+		tfFoodName.becomeFirstResponder()
+	}
+	
 	func addActionConfirmClick(_ actionWithTitle: String?, handler ConfirmClick: @escaping (_ foodName: String, _ calorie: Int, _ gram: Int) -> Void) {
 		
 		btnConfirm.setTitle(actionWithTitle, for: .normal)
@@ -151,7 +156,7 @@ class PersonalFoodAddPopup: BasePopup {
 		if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
 			let keyboardRectangle = keyboardFrame.cgRectValue
 			
-			// iPhoneX 스타일 경우 마진을 34만큼 더준다.
+			// iPhoneX 스타일 경우 마진을 34만큼 더준다.            
 			var gapOffsetY : CGFloat = 0.0
 			if CommonUtil.isIphoneX == true {
 				gapOffsetY = 34.0
@@ -160,7 +165,7 @@ class PersonalFoodAddPopup: BasePopup {
 			let kbSizeHeight : CGFloat = keyboardRectangle.height - gapOffsetY
 			
 			UIView.animate(withDuration: 0.25, animations: { () -> Void in
-				self.view.frame.origin.y -= kbSizeHeight
+				self.view.frame.origin.y = -kbSizeHeight
 				self.view.layoutIfNeeded()
 			})
 		}

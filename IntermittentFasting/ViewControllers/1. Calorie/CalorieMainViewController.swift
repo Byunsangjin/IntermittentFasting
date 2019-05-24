@@ -28,6 +28,9 @@ class CalorieMainViewController: UIViewController {
 	// 해상도 폭 - 24 - 24
 	let kSubViewWidth: CGFloat = UIScreen.main.bounds.width - 48
 	
+	// 이전 스크롤 X위치
+	var oldContentOffsetX: CGFloat = 0
+	
 	// 슬라이더 셀
 	var arrSubCell: [UIView] = []
 	var arrSubCheild: [FoodListViewController] = []
@@ -114,8 +117,6 @@ class CalorieMainViewController: UIViewController {
 			scrollView.addSubview(subVC!.view)
 			arrSubCell.append(subVC!.view)
 			arrSubCheild.append(subVC!)
-			
-			print(subVC!.view.layer.position)
 		}
 		
 		let nWidth: CGFloat = kSubViewWidth * CGFloat(arrSubCell.count)
@@ -128,7 +129,13 @@ class CalorieMainViewController: UIViewController {
 		self.scrollView.setContentOffset(CGPoint(x: self.kSubViewWidth - scrollView.contentInset.left, y: 0), animated: false)
     }
     
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
 
+		// 서브셀 위치 재설정
+		reposSubCell()
+	}
+	
     /*
     // MARK: - Navigation
 
@@ -242,8 +249,11 @@ extension CalorieMainViewController: UIScrollViewDelegate {
 			// 서브셀 위치 재설정
 			var viewFrame = vSubCell.frame
 			viewFrame.origin.x = px
+			viewFrame.size.width = kSubViewWidth
 			vSubCell.frame = viewFrame
 			px += kSubViewWidth
+			
+			print("viewFrame=\(viewFrame)")
 		}
 		
 		// 스크롤 옵셋값 수정
@@ -295,23 +305,36 @@ extension CalorieMainViewController: UIScrollViewDelegate {
 		reposSubCell(move: 1)
 	}
 	
-	// 스크롤 이벤트
-	func scrollEvent(_ scrollView: UIScrollView, isCenterMove: Bool = false) {
-		if arrSubCell.isEmpty == true {
+	// 스크롤 정보 갱신
+	func updateScrollView(_ scrollView: UIScrollView) {
+		
+		let gap: CGFloat = scrollView.contentOffset.x - oldContentOffsetX
+		if gap < 0 {
+			// 이전 페이지 이동시 처리
+			goPrevPage()
+		}
+		else if gap > 0 {
+			// 다음 페이지 이동시 처리
+			goNextPage()
+		}
+		else {
 			return
 		}
 		
-		// 무한스크롤뷰 일때
-		let tabIndex: Int = Int((scrollView.contentOffset.x + scrollView.center.x) / kSubViewWidth)
-		// Prev Move
-		if tabIndex == 0 {
-			goPrevPage()
+		UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseInOut, animations: {
+			scrollView.contentOffset = CGPoint(x: self.kSubViewWidth - scrollView.contentInset.left, y: 0)
+		}) { finished in
+			let subCenterVC: FoodListViewController? = self.getSelectedViewController(self.arrSubCell[1])
+			if let subCenterVC = subCenterVC {
+				CalendarManager.curSelectedDay = subCenterVC.currentDate!.year * 10000 + subCenterVC.currentDate!.month * 100 + subCenterVC.currentDate!.day
+				// 화면 갱신
+				self.updateScreen()
+			}
 		}
-			// Next Move
-		else if tabIndex == 2 {
-			goNextPage()
-		}
-		
+	}
+
+	// 셀뷰 Y위치값 갱신
+	func updateCellPosY(_ scrollView: UIScrollView) {
 		// 서브셀 위치 재설정
 		let ratio: CGFloat = 90.0 / maxCellVerticalGap
 		
@@ -333,10 +356,42 @@ extension CalorieMainViewController: UIScrollViewDelegate {
 			frame.origin.y = mulValue
 			vSubCell.frame = frame
 		}
+	}
+
+	// 2. 스크롤뷰가 스크롤 된 후에 실행된다.
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		
-		// 스크롤뷰 센터 이동
-		if isCenterMove == true {
-			UIView.animate(withDuration: 0.25, delay: 0, options: .curveLinear, animations: {
+		// 셀뷰 Y위치값 갱신
+		updateCellPosY(scrollView)
+	}
+
+	// 스크롤 뷰에서 내용 스크롤을 시작할 시점을 대리인에게 알립니다.
+	func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+		print("scrollViewWillBeginDragging:")
+		
+		oldContentOffsetX = scrollView.contentOffset.x
+	}
+	
+	// 드래그가 스크롤 뷰에서 끝났을 때 대리자에게 알립니다.
+	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+		print("scrollViewDidEndDragging:willDecelerate:")
+		
+		// 감속처리가 없을 경우에만 처리되도록...
+		if decelerate == false {
+			// 무한스크롤뷰 일때
+			let tabIndex: Int = Int((scrollView.contentOffset.x + scrollView.center.x) / kSubViewWidth)
+			// Prev Move
+			if tabIndex == 0 {
+				// 이전 페이지 이동시 처리
+				goPrevPage()
+			}
+				// Next Move
+			else if tabIndex == 2 {
+				// 다음 페이지 이동시 처리
+				goNextPage()
+			}
+			
+			UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseInOut, animations: {
 				scrollView.contentOffset = CGPoint(x: self.kSubViewWidth - scrollView.contentInset.left, y: 0)
 			}) { finished in
 				let subCenterVC: FoodListViewController? = self.getSelectedViewController(self.arrSubCell[1])
@@ -346,40 +401,7 @@ extension CalorieMainViewController: UIScrollViewDelegate {
 					self.updateScreen()
 				}
 			}
-			//            scrollView.setContentOffset(CGPoint(x: self.kSubViewWidth - scrollView.contentInset.left, y: 0), animated: true)
 		}
-	}
-	
-	// 스크롤 뷰에서 내용 스크롤을 시작할 시점을 대리인에게 알립니다.
-	func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-		print("scrollViewWillBeginDragging:")
-		
-	}
-	
-	// 2. 스크롤뷰가 스크롤 된 후에 실행된다.
-	func scrollViewDidScroll(_ scrollView: UIScrollView) {
-		
-		// 스크롤 이벤트
-		scrollEvent(scrollView)
-	}
-	
-	// 드래그가 스크롤 뷰에서 끝났을 때 대리자에게 알립니다.
-	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-		print("scrollViewDidEndDragging:willDecelerate:")
-		
-		// 감속처리가 없을 경우에만 처리되도록...
-		if decelerate == false {
-			// 스크롤 이벤트
-			scrollEvent(scrollView, isCenterMove: true)
-		}
-	}
-	
-	// (현재 못씀)
-	func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-		print("scrollViewDidEndScrollingAnimation")
-		
-		// 스크롤 이벤트
-		scrollEvent(scrollView)
 	}
 	
 	// 스크롤뷰가 Touch-up 이벤트를 받아 스크롤 속도가 줄어들때 실행된다.
@@ -392,10 +414,14 @@ extension CalorieMainViewController: UIScrollViewDelegate {
 	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 		print("scrollViewDidEndDecelerating")
 		
-		// 스크롤 이벤트
-		scrollEvent(scrollView, isCenterMove: true)
 	}
 	
+	// (현재 못씀)
+	func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+		print("scrollViewDidEndScrollingAnimation")
+		
+	}
+
 	// scrollView.scrollsToTop = YES 설정이 되어 있어야 아래 이벤트를 받을수 있다.
 	// 스크롤뷰가 가장 위쪽으로 스크롤 되기 전에 실행된다. NO를 리턴할 경우 위쪽으로 스크롤되지 않도록 한다.
 	//- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
@@ -413,6 +439,11 @@ extension CalorieMainViewController: UIScrollViewDelegate {
 	// 사용자가 콘텐츠 스크롤을 마쳤을 때 대리인에게 알립니다.
 	func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 		print("scrollViewWillEndDragging:withVelocity:targetContentOffset:")
-		
+		if velocity.x != 0 {
+			targetContentOffset.pointee = scrollView.contentOffset
+			
+			// 스크롤 정보 갱신
+			updateScrollView(scrollView)
+		}
 	}
 }

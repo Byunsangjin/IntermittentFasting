@@ -97,6 +97,7 @@ class TabbarViewController: UIViewController {
         
         // 홈탭 선택
         selectedTab(2)
+        
 		
 		// 탭바 활성화/비활성화
 		NotificationCenter.default.addObserver(self,

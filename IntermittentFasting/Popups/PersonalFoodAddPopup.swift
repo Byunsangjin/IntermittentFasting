@@ -156,7 +156,7 @@ class PersonalFoodAddPopup: BasePopup {
 		if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
 			let keyboardRectangle = keyboardFrame.cgRectValue
 			
-			// iPhoneX 스타일 경우 마진을 34만큼 더준다.
+			// iPhoneX 스타일 경우 마진을 34만큼 더준다.            
 			var gapOffsetY : CGFloat = 0.0
 			if CommonUtil.isIphoneX == true {
 				gapOffsetY = 34.0

@@ -10,6 +10,7 @@ import Realm
 import RealmSwift
 
 class ModelUser: Object {
+    @objc dynamic var id = UUID().uuidString
     @objc dynamic var name = ""
     @objc dynamic var birth = ""
     @objc dynamic var gender = 1 // 0 남자 1 여자

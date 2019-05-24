@@ -263,20 +263,20 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jKf-S0-z6H" firstAttribute="leading" secondItem="0zw-Jp-Kzs" secondAttribute="leading" id="Qnm-nn-5Z4"/>
-                            <constraint firstItem="jKf-S0-z6H" firstAttribute="bottom" secondItem="0zw-Jp-Kzs" secondAttribute="bottom" id="TyQ-Zf-P41"/>
                             <constraint firstItem="0zw-Jp-Kzs" firstAttribute="trailing" secondItem="jKf-S0-z6H" secondAttribute="trailing" id="Yxf-Sp-Okz"/>
+                            <constraint firstAttribute="bottom" secondItem="jKf-S0-z6H" secondAttribute="bottom" id="xRp-eb-vTd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0zw-Jp-Kzs"/>
                     </view>
                     <connections>
                         <outlet property="alertView" destination="jKf-S0-z6H" id="HZc-Jg-mbC"/>
-                        <outlet property="bottomConstraint" destination="TyQ-Zf-P41" id="QV4-eh-891"/>
+                        <outlet property="bottomConstraint" destination="xRp-eb-vTd" id="K78-dE-lQu"/>
                         <outlet property="weightTextField" destination="WMd-n3-RXw" id="NJc-a8-78U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UK4-EN-HT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4061.5999999999999" y="935.98200899550227"/>
+            <point key="canvasLocation" x="3911" y="936"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="UL6-os-K3U">
@@ -299,7 +299,7 @@
                                         <rect key="frame" x="97" y="113.5" width="107.5" height="63"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t2-v0-MBQ" customClass="CustomLabel" customModule="IntermittentFasting" customModuleProvider="target">
-                                        <rect key="frame" x="30.5" y="224.5" width="240" height="201.5"/>
+                                        <rect key="frame" x="5.5" y="213.5" width="290.5" height="223"/>
                                         <attributedString key="attributedText">
                                             <fragment>
                                                 <string key="content">간헐적 단식이란 평소대로 먹다가

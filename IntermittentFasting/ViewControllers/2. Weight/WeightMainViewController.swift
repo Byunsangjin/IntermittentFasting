@@ -90,7 +90,27 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
         
         
         self.titleLabel.text = Date().dateToString()
+        
+        let weightArray = DBManager.shared.selectWeightDB()
+        for weight in weightArray {
+            print(weight.weight)
+        }
+        
+        
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear")
+    }
+    
+    
+    
     
     func setDataCount(_ count: Int, range: UInt32) {
         let yVals1 = (1...count).map { (i) -> ChartDataEntry in
@@ -130,14 +150,9 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
     
     // MARK:- Actions
     @IBAction func calendarBtnClick(_ sender: Any) {
-//        CalendarManager.curSelectedDay = CalendarManager.getTodayIndex()
-//        CalendarManager.newSelectedDay = CalendarManager.curSelectedDay
-        
         let popupVC = CalendarPopup.calendarPopup()
         popupVC.addActionConfirmClick { (year, month, day) in
-            self.titleLabel.text = "\(year)년 \(month)월 \(day)일"
-            // 화면 갱신
-//            self.updateScreen()
+            self.titleLabel.text = String(format: "%d.%02d.%02d", year, month, day)
         }
     }
     

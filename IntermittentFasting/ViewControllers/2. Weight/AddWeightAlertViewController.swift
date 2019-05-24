@@ -22,6 +22,8 @@ class AddWeightAlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
         setUI()
     }
     
@@ -43,7 +45,7 @@ class AddWeightAlertViewController: UIViewController {
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(keyboardWillHide(_:)),
+            selector: #selector(keyboardWillHide),
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
@@ -65,7 +67,8 @@ class AddWeightAlertViewController: UIViewController {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             
-            self.bottomConstraint.constant = -keyboardHeight
+            self.bottomConstraint.constant = (keyboardHeight)
+            
             UIView.animate(withDuration: 0.5) {
                 self.view.layoutIfNeeded()
             }
@@ -75,23 +78,35 @@ class AddWeightAlertViewController: UIViewController {
     
     
     @objc func keyboardWillHide(_ notification: Notification) {
-        self.bottomConstraint.constant = 0
-        
         UIView.animate(withDuration: 0.5) {
+            self.bottomConstraint.constant = 0
             self.view.layoutIfNeeded()
         }
     }
     
     
     
+    func dismissAlert() {
+        self.removeFromParent()
+        self.view.removeFromSuperview()
+    }
+    
+    
+    
     // MARK:- Actions
     @IBAction func okBtnClick(_ sender: Any) {
+        let weight = ModelWeight()
+        let tuple = CalendarManager.getSelectedYearMonthDay()
+        weight.date = String(format: "%d.%02d.%02d", tuple.year, tuple.month, tuple.day)        
+        weight.weight = Double(weightTextField.text!) as! Double
+        DBManager.shared.insertWeightDB(weight: weight)
         
+        dismissAlert()
     }
     
     
     
     @IBAction func cancelBtnClick(_ sender: Any) {
-        
+        dismissAlert()
     }
 }

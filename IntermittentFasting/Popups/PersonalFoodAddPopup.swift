@@ -8,7 +8,11 @@
 
 import UIKit
 
-class PersonalFoodAddPopup: BasePopup {
+class PersonalFoodAddPopup: UIViewController {
+
+	// 팀드 뷰
+	@IBOutlet weak var vDimmed: UIView!
+	@IBOutlet weak var vContent: UIView!
 
 	@IBOutlet weak var tfFoodName: UITextField!
 	@IBOutlet weak var tfCalorie: UZTextField!
@@ -24,9 +28,21 @@ class PersonalFoodAddPopup: BasePopup {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		self.vDimmed.isAccessibilityElement = true
+		
+		view.backgroundColor = UIColor.clear
+		
+		// 딤드뷰 클릭시 팝업 닫아 주기
+		vDimmed.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(callbackWithCancel)))
+		
+		// 적용된 뷰를 모달 처리 함
+		view.accessibilityViewIsModal = true
+		
+		
 		tfFoodName.attributedPlaceholder = NSAttributedString(string: "음식명을 입력하세요.", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: 0x60DDB4, alpha: 0.7)])
+		tfFoodName.becomeFirstResponder()
 		// 스케쥴 시작
-		self.perform(#selector(self.FirstTextFieldFocus), with: nil, afterDelay: 0.1)
+//		self.perform(#selector(self.FirstTextFieldFocus), with: nil, afterDelay: 0.1)
 
 		tfCalorie.delegate = self
 		tfGram.delegate = self
@@ -48,7 +64,6 @@ class PersonalFoodAddPopup: BasePopup {
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		self.view.endEditing(true)
 		NotificationCenter.default.removeObserver(self)
 		
 		super.viewWillDisappear(animated)
@@ -136,16 +151,16 @@ class PersonalFoodAddPopup: BasePopup {
 			confirmAction(strFoodName!, Int(strCalorie!)!, Int(strGram!)!)
 		}
 		
-		removeFromParentVC()
+		self.dismiss(animated: false, completion: nil)
 	}
 	
-	func callbackWithCancel() {
+	@objc func callbackWithCancel() {
 		
 		if let cancelAction = cancelClick {
 			cancelAction()
 		}
 		
-		removeFromParentVC()
+		self.dismiss(animated: false, completion: nil)
 	}
 	
 	// MARK: - NotificationCenter
@@ -174,15 +189,16 @@ class PersonalFoodAddPopup: BasePopup {
 	// 언포커싱 되었을때 스크롤뷰 마진값 해제
 	@objc func keyboardWillHide(_ notification: NSNotification) {
 		print("keyboardWillHide")
-		
+
 		UIView.animate(withDuration: 0.25, animations: { () -> Void in
 			self.view.frame.origin.y = 0.0
 			self.view.layoutIfNeeded()
 		})
+		
 	}
 	
 	// MARK: - Class Method
-	static func personalFoodAddPopup() -> PersonalFoodAddPopup {
+	static func personalFoodAddPopup(parentVC: UIViewController) -> PersonalFoodAddPopup {
 		
 		let storyboard: UIStoryboard? = AppDelegate.sharedNamedStroyBoard("Common") as? UIStoryboard
 		let popupVC = storyboard?.instantiateViewController(withIdentifier: "PersonalFoodAddPopup") as? PersonalFoodAddPopup
@@ -191,7 +207,7 @@ class PersonalFoodAddPopup: BasePopup {
 		popupVC!.definesPresentationContext = true
 		popupVC!.modalPresentationStyle = .overFullScreen
 		
-		BasePopup.addChildVC(popupVC)
+		parentVC.present(popupVC!, animated: false, completion: nil)
 		
 		return popupVC!
 	}

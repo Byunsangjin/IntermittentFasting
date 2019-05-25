@@ -299,7 +299,7 @@
                                         <rect key="frame" x="97" y="113.5" width="107.5" height="63"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t2-v0-MBQ" customClass="CustomLabel" customModule="IntermittentFasting" customModuleProvider="target">
-                                        <rect key="frame" x="5.5" y="213.5" width="290.5" height="223"/>
+                                        <rect key="frame" x="30.5" y="224.5" width="240" height="201.5"/>
                                         <attributedString key="attributedText">
                                             <fragment>
                                                 <string key="content">간헐적 단식이란 평소대로 먹다가
@@ -1355,7 +1355,7 @@
                                                     <action selector="onTabClick:" destination="Z9A-Ma-614" eventType="touchUpInside" id="n7i-tf-hsK"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="몸무게" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qat-3w-PPa">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="몸무게" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qat-3w-PPa">
                                                 <rect key="frame" x="21.5" y="41" width="32" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <color key="textColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1388,7 +1388,7 @@
                                                     <action selector="onTabClick:" destination="Z9A-Ma-614" eventType="touchUpInside" id="Yk5-Ye-PkY"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-TJ-3Ai">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-TJ-3Ai">
                                                 <rect key="frame" x="32.5" y="55" width="10.5" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <color key="textColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1420,7 +1420,7 @@
                                                     <action selector="onTabClick:" destination="Z9A-Ma-614" eventType="touchUpInside" id="D6B-lm-fGZ"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="게시판" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3b-jG-TMG">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="게시판" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3b-jG-TMG">
                                                 <rect key="frame" x="21.5" y="41" width="32" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <color key="textColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1452,7 +1452,7 @@
                                                     <action selector="onTabClick:" destination="Z9A-Ma-614" eventType="touchUpInside" id="a9O-xu-PCq"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHn-Jh-2pW">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHn-Jh-2pW">
                                                 <rect key="frame" x="16.5" y="41" width="42" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <color key="textColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1509,19 +1509,19 @@
                         <viewLayoutGuide key="safeArea" id="yiE-Ia-bzW"/>
                     </view>
                     <connections>
-                        <outlet property="btnTab0" destination="QrN-SX-w4E" id="v8k-vx-Aht"/>
-                        <outlet property="btnTab1" destination="2Uf-z3-pEW" id="HRg-6z-te0"/>
-                        <outlet property="btnTab2" destination="eMq-XH-9IE" id="ZmB-Hb-KUJ"/>
-                        <outlet property="btnTab3" destination="Olp-Zp-hZw" id="itF-6D-mt1"/>
-                        <outlet property="btnTab4" destination="eOd-YB-10N" id="pca-YR-7rD"/>
-                        <outlet property="lbTabTitle0" destination="BeE-wd-yda" id="gOM-Go-2FJ"/>
-                        <outlet property="lbTabTitle1" destination="qat-3w-PPa" id="nT0-v1-V7N"/>
-                        <outlet property="lbTabTitle2" destination="b2g-TJ-3Ai" id="VTR-SF-xAE"/>
-                        <outlet property="lbTabTitle3" destination="m3b-jG-TMG" id="9Fd-Y8-pHw"/>
-                        <outlet property="lbTabTitle4" destination="NHn-Jh-2pW" id="ohx-4v-mlb"/>
                         <outlet property="vContent" destination="QGm-6h-1Di" id="7ec-OC-6mu"/>
                         <outlet property="vTabbar" destination="3iE-HN-4sT" id="ukW-GA-gVv"/>
                         <outlet property="vTabbarHeightConstraint" destination="Y5p-KF-rO4" id="lTc-Fg-h7B"/>
+                        <outletCollection property="arrTabbarButton" destination="QrN-SX-w4E" collectionClass="NSMutableArray" id="Ur8-zD-hlb"/>
+                        <outletCollection property="arrTabbarLabel" destination="BeE-wd-yda" collectionClass="NSMutableArray" id="iTl-oF-fAO"/>
+                        <outletCollection property="arrTabbarButton" destination="2Uf-z3-pEW" collectionClass="NSMutableArray" id="38S-gW-ZDf"/>
+                        <outletCollection property="arrTabbarButton" destination="eMq-XH-9IE" collectionClass="NSMutableArray" id="Rlh-sp-b5f"/>
+                        <outletCollection property="arrTabbarButton" destination="Olp-Zp-hZw" collectionClass="NSMutableArray" id="Ibe-C4-8cl"/>
+                        <outletCollection property="arrTabbarButton" destination="eOd-YB-10N" collectionClass="NSMutableArray" id="aEr-FF-Ypc"/>
+                        <outletCollection property="arrTabbarLabel" destination="qat-3w-PPa" collectionClass="NSMutableArray" id="40t-gh-exW"/>
+                        <outletCollection property="arrTabbarLabel" destination="b2g-TJ-3Ai" collectionClass="NSMutableArray" id="EjK-jh-ju6"/>
+                        <outletCollection property="arrTabbarLabel" destination="m3b-jG-TMG" collectionClass="NSMutableArray" id="gmP-hb-P97"/>
+                        <outletCollection property="arrTabbarLabel" destination="NHn-Jh-2pW" collectionClass="NSMutableArray" id="P1I-66-IzR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yer-nB-MO7" userLabel="First Responder" sceneMemberID="firstResponder"/>

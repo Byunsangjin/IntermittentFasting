@@ -577,6 +577,7 @@
 				D9D94FE5227DA4EB00E50069 /* PersonalFoodViewController.swift */,
 				D9D94FE6227DA4EB00E50069 /* BookMarkViewController.swift */,
 				D902E8DF228AB02900759558 /* FoodSearchTableViewCell.swift */,
+				D904E6F0227F04EB00972950 /* PersonalFoodAddPopup.swift */,
 			);
 			path = "1. Calorie";
 			sourceTree = "<group>";
@@ -632,7 +633,6 @@
 				D9D95003227DA51700E50069 /* CalendarDayCell.swift */,
 				D9D95004227DA51700E50069 /* BasePopup.swift */,
 				D9D95005227DA51700E50069 /* CalendarPopup.swift */,
-				D904E6F0227F04EB00972950 /* PersonalFoodAddPopup.swift */,
 			);
 			path = Popups;
 			sourceTree = "<group>";

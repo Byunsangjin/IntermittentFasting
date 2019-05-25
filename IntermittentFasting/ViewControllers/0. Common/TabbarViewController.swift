@@ -31,13 +31,6 @@ NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showTabbar"
 
 import UIKit
 
-// 탭바 컨트롤
-struct TabbarControll {
-    var btnTab: UIButton? = nil
-    var lbTabTitle: UILabel? = nil
-    var viewControllers: UIViewController? = nil
-}
-
 class TabbarViewController: UIViewController {
     
     // 이전 선택 탭인덱스
@@ -45,24 +38,17 @@ class TabbarViewController: UIViewController {
     // 선택 탭인덱스
     var selectedIndex:Int = -1
     
-    var arrTabbarControll: [TabbarControll] = []
+    var arrTabbarControll: [UIViewController] = []
 
     @IBOutlet weak var vContent: UIView!
     @IBOutlet weak var vTabbar: UIView!
 	@IBOutlet weak var vTabbarHeightConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var btnTab0: UIButton!
-    @IBOutlet weak var btnTab1: UIButton!
-    @IBOutlet weak var btnTab2: UIButton!
-    @IBOutlet weak var btnTab3: UIButton!
-    @IBOutlet weak var btnTab4: UIButton!
-    
-    @IBOutlet weak var lbTabTitle0: UILabel!
-    @IBOutlet weak var lbTabTitle1: UILabel!
-    @IBOutlet weak var lbTabTitle2: UILabel!
-    @IBOutlet weak var lbTabTitle3: UILabel!
-    @IBOutlet weak var lbTabTitle4: UILabel!
-    
+	
+	// 탭바 버튼
+	@IBOutlet var arrTabbarButton: [UIButton]!
+	// 탭바 버튼 레이블
+	@IBOutlet var arrTabbarLabel: [UILabel]!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -83,18 +69,12 @@ class TabbarViewController: UIViewController {
         let boardVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardMainViewController") as? BoardMainViewController
         let settingsVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingsMainViewController") as? SettingsMainViewController
 
-        // 탭컨트롤러 정보 세팅
-        let tc0: TabbarControll = TabbarControll(btnTab: btnTab0, lbTabTitle: lbTabTitle0, viewControllers: calorieVC!)
-        arrTabbarControll += [tc0]
-        let tc1: TabbarControll = TabbarControll(btnTab: btnTab1, lbTabTitle: lbTabTitle1, viewControllers: weightVC)
-        arrTabbarControll += [tc1]
-        let tc2: TabbarControll = TabbarControll(btnTab: btnTab2, lbTabTitle: lbTabTitle2, viewControllers: homeVC)
-        arrTabbarControll += [tc2]
-        let tc3: TabbarControll = TabbarControll(btnTab: btnTab3, lbTabTitle: lbTabTitle3, viewControllers: boardVC)
-        arrTabbarControll += [tc3]
-        let tc4: TabbarControll = TabbarControll(btnTab: btnTab4, lbTabTitle: lbTabTitle4, viewControllers: settingsVC)
-        arrTabbarControll += [tc4]
-        
+		arrTabbarControll += [calorieVC!]
+		arrTabbarControll += [weightVC!]
+		arrTabbarControll += [homeVC!]
+		arrTabbarControll += [boardVC!]
+		arrTabbarControll += [settingsVC!]
+		
         // 홈탭 선택
         selectedTab(2)
         
@@ -149,30 +129,30 @@ class TabbarViewController: UIViewController {
         
         // 이전탭 해제
         if previousIndex != -1 {
-            let tc: TabbarControll = arrTabbarControll[previousIndex]
-            tc.viewControllers!.view.removeFromSuperview()
-            tc.viewControllers!.removeFromParent()
+            let vc: UIViewController = arrTabbarControll[previousIndex]
+			vc.view.removeFromSuperview()
+			vc.removeFromParent()
         }
 
         for i in 0..<arrTabbarControll.count {
-            let tc: TabbarControll = arrTabbarControll[i]
-            if i == index {
-                tc.btnTab!.isSelected = true
-                tc.lbTabTitle!.textColor = UIColor.init(hex: 0xFF7F67)
-                
-                if let vc = tc.viewControllers {
-                    // 탭 VC 설정
-                    self.addChild(vc)
-                    
-                    vc.view.frame = self.vContent.bounds
-                    self.vContent.addSubview(vc.view)
-                }
-            }
-            else {
-                tc.btnTab!.isSelected = false
-                tc.lbTabTitle!.textColor = UIColor.init(hex: 0xAEAEAE)
-            }
-        }
+            let vc: UIViewController = arrTabbarControll[i]
+			let button: UIButton = arrTabbarButton[i]
+			let titleLabel: UILabel = arrTabbarLabel[i]
+			if i == index {
+				button.isSelected = true
+				titleLabel.textColor = UIColor.init(hex: 0xFF7F67)
+				
+				// 탭 VC 설정
+				self.addChild(vc)
+				
+				vc.view.frame = self.vContent.bounds
+				self.vContent.addSubview(vc.view)
+			}
+			else {
+				button.isSelected = false
+				titleLabel.textColor = UIColor.init(hex: 0xAEAEAE)
+			}
+		}
     }
 
     /*

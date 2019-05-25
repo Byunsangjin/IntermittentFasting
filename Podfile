@@ -10,5 +10,7 @@ target 'IntermittentFasting' do
   pod 'RxCocoa',    '~> 4.0'
   pod 'Charts'
   pod 'RealmSwift'
+  
+  pod 
 
 end

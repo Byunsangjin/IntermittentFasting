@@ -66,13 +66,15 @@ class TabbarViewController: UIViewController {
         }
         let weightVC = self.storyboard?.instantiateViewController(withIdentifier: "WeightMainViewController") as? WeightMainViewController
         let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeMainViewController") as? HomeMainViewController
+        let jhPark = UIStoryboard.init(name: "JhPark", bundle: nil)
+        let boardNavC = jhPark.instantiateViewController(withIdentifier: "BoardNavC") as? UINavigationController
         let boardVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardMainViewController") as? BoardMainViewController
         let settingsVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingsMainViewController") as? SettingsMainViewController
 
 		arrTabbarControll += [calorieVC!]
 		arrTabbarControll += [weightVC!]
 		arrTabbarControll += [homeVC!]
-		arrTabbarControll += [boardVC!]
+		arrTabbarControll += [boardNavC!]
 		arrTabbarControll += [settingsVC!]
 		
         // 홈탭 선택

@@ -11,6 +11,8 @@ target 'IntermittentFasting' do
   pod 'Charts'
   pod 'RealmSwift'
   
-  pod 
+  # Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
 end

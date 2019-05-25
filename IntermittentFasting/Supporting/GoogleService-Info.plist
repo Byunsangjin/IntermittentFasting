@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>524729765676-vf6eg7od9akkqvghi4d8cd1pb4kb1hqs.apps.googleusercontent.com</string>
+	<string>524729765676-jp1elmi2dornb6c5dmmreua0p8froj33.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.524729765676-vf6eg7od9akkqvghi4d8cd1pb4kb1hqs</string>
+	<string>com.googleusercontent.apps.524729765676-jp1elmi2dornb6c5dmmreua0p8froj33</string>
 	<key>API_KEY</key>
 	<string>AIzaSyC-j-JDlLkgoZgz4gEKRZBJ1La-k1AeR3s</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.znfod.firebasesample</string>
+	<string>sjbyun.IntermittentFasting</string>
 	<key>PROJECT_ID</key>
 	<string>intermittentfasting-a8a76</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:524729765676:ios:8cbfe6bd0d280a3b</string>
+	<string>1:524729765676:ios:7bba8b6c7790a521</string>
 	<key>DATABASE_URL</key>
 	<string>https://intermittentfasting-a8a76.firebaseio.com</string>
 </dict>

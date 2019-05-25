@@ -76,6 +76,7 @@
 		9BF17DE722998A5B00A1300B /* icon_message@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF17DDD22998A5B00A1300B /* icon_message@3x.png */; };
 		9BF17DE822998A5B00A1300B /* icon_message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF17DDE22998A5B00A1300B /* icon_message@2x.png */; };
 		9BF17DE922998A5B00A1300B /* icon_heart2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BF17DDF22998A5B00A1300B /* icon_heart2@2x.png */; };
+		9BF17DED229990F500A1300B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BF17DEC229990F400A1300B /* GoogleService-Info.plist */; };
 		D902E8D3228A92C300759558 /* icon_not_foodlist@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D902E8C9228A92C200759558 /* icon_not_foodlist@3x.png */; };
 		D902E8D4228A92C300759558 /* icon_food_search@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D902E8CA228A92C300759558 /* icon_food_search@3x.png */; };
 		D902E8D5228A92C300759558 /* icon_bookmark_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D902E8CB228A92C300759558 /* icon_bookmark_off@2x.png */; };
@@ -222,6 +223,7 @@
 		9BF17DDD22998A5B00A1300B /* icon_message@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_message@3x.png"; sourceTree = "<group>"; };
 		9BF17DDE22998A5B00A1300B /* icon_message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_message@2x.png"; sourceTree = "<group>"; };
 		9BF17DDF22998A5B00A1300B /* icon_heart2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_heart2@2x.png"; sourceTree = "<group>"; };
+		9BF17DEC229990F400A1300B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D902E8C9228A92C200759558 /* icon_not_foodlist@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_not_foodlist@3x.png"; sourceTree = "<group>"; };
 		D902E8CA228A92C300759558 /* icon_food_search@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_food_search@3x.png"; sourceTree = "<group>"; };
 		D902E8CB228A92C300759558 /* icon_bookmark_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_bookmark_off@2x.png"; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 		6098EC772268B2660042EA96 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				9BF17DEC229990F400A1300B /* GoogleService-Info.plist */,
 				606A40EC2264CE42004B9329 /* AppDelegate.swift */,
 				606A40F32264CE43004B9329 /* Assets.xcassets */,
 				606A40F82264CE43004B9329 /* Info.plist */,
@@ -799,6 +802,7 @@
 				D9D94FBD227DA4CD00E50069 /* icon_calorie_off@2x.png in Resources */,
 				606A40F22264CE42004B9329 /* Main.storyboard in Resources */,
 				6098ECA22269D9B90042EA96 /* icon_close@2x.png in Resources */,
+				9BF17DED229990F500A1300B /* GoogleService-Info.plist in Resources */,
 				D9D94FB4227DA4CD00E50069 /* btn_next@3x.png in Resources */,
 				D9D94FB6227DA4CD00E50069 /* icon_personal_settings_off@2x.png in Resources */,
 				D9D94FCB227DA4CD00E50069 /* btn_close@3x.png in Resources */,
@@ -882,23 +886,37 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-IntermittentFasting/Pods-IntermittentFasting-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

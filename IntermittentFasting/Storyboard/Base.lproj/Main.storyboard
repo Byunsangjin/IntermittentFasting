@@ -184,6 +184,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvg-NU-8O8">
+                                <rect key="frame" x="0.0" y="657" width="375" height="10"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.04677283753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="Oka-bo-del"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -191,6 +198,9 @@
                             <constraint firstItem="JfD-bP-bIV" firstAttribute="top" secondItem="gKb-mD-pZ0" secondAttribute="bottom" constant="23" id="17y-iv-3w2"/>
                             <constraint firstItem="JfD-bP-bIV" firstAttribute="leading" secondItem="3pw-mk-XTu" secondAttribute="leading" constant="30" id="1c8-hg-5lr"/>
                             <constraint firstItem="gKb-mD-pZ0" firstAttribute="top" secondItem="3pw-mk-XTu" secondAttribute="top" constant="26" id="6dt-pA-Ehv"/>
+                            <constraint firstItem="3pw-mk-XTu" firstAttribute="trailing" secondItem="Jvg-NU-8O8" secondAttribute="trailing" id="BcG-XK-kRC"/>
+                            <constraint firstItem="Jvg-NU-8O8" firstAttribute="bottom" secondItem="3pw-mk-XTu" secondAttribute="bottom" id="Cjf-Oc-vf0"/>
+                            <constraint firstItem="Jvg-NU-8O8" firstAttribute="leading" secondItem="3pw-mk-XTu" secondAttribute="leading" id="Wxl-T9-Nx4"/>
                             <constraint firstItem="gKb-mD-pZ0" firstAttribute="centerX" secondItem="mDx-0d-wnk" secondAttribute="centerX" id="urV-QX-lh9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3pw-mk-XTu"/>
@@ -235,7 +245,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mg-cf-rcL">
                                         <rect key="frame" x="313" y="145" width="30" height="30"/>
@@ -299,7 +309,7 @@
                                         <rect key="frame" x="97" y="113.5" width="107.5" height="63"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t2-v0-MBQ" customClass="CustomLabel" customModule="IntermittentFasting" customModuleProvider="target">
-                                        <rect key="frame" x="5.5" y="213.5" width="290.5" height="223"/>
+                                        <rect key="frame" x="30.5" y="224.5" width="240" height="201.5"/>
                                         <attributedString key="attributedText">
                                             <fragment>
                                                 <string key="content">간헐적 단식이란 평소대로 먹다가
@@ -1542,11 +1552,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hG3-xy-ZdT">
+                                <rect key="frame" x="0.0" y="647" width="375" height="20"/>
+                                <color key="backgroundColor" red="1" green="0.1670723593" blue="0.1170511085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="xoG-yu-3Om"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7vZ-Ez-3c0" firstAttribute="centerX" secondItem="DnA-68-G0l" secondAttribute="centerX" id="8oF-TF-zvv"/>
+                            <constraint firstItem="hG3-xy-ZdT" firstAttribute="leading" secondItem="9UN-BN-PAA" secondAttribute="leading" id="F2R-uu-RFE"/>
                             <constraint firstItem="7vZ-Ez-3c0" firstAttribute="top" secondItem="9UN-BN-PAA" secondAttribute="top" constant="50" id="Hoo-H3-brX"/>
+                            <constraint firstItem="hG3-xy-ZdT" firstAttribute="bottom" secondItem="9UN-BN-PAA" secondAttribute="bottom" id="QCp-ji-o4W"/>
+                            <constraint firstItem="9UN-BN-PAA" firstAttribute="trailing" secondItem="hG3-xy-ZdT" secondAttribute="trailing" id="s53-Cc-iDU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9UN-BN-PAA"/>
                     </view>

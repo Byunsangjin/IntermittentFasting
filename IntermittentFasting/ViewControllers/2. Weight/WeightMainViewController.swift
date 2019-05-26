@@ -56,7 +56,7 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
         
         let xAxis = chartView.xAxis
         xAxis.axisMinimum = 1
-        xAxis.axisMaximum = 30
+        xAxis.axisMaximum = 3
         xAxis.labelPosition = .bottom
         
         xAxis.gridLineWidth = 0
@@ -73,7 +73,7 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
         
         xAxis.valueFormatter =  DefaultAxisValueFormatter(formatter: xAxisFomatter)
         
-        setDataCount(30, range: 0)
+        setDataCount(3, range: 0)
         
         let marker = XYMarkerView(color: UIColor(white: 180/255, alpha: 1),
                                    font: .systemFont(ofSize: 12),
@@ -161,8 +161,12 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
     @IBAction func addWeightBtnClick(_ sender: Any) {
         let addWeightAlertVC = self.storyboard?.instantiateViewController(withIdentifier: "AddWeightAlertViewController") as! AddWeightAlertViewController
         
-        self.addChild(addWeightAlertVC)
-        self.view.addSubview(addWeightAlertVC.view)
+        // 팝업으로 떳을때 뒷배경 투명처리
+        addWeightAlertVC.providesPresentationContextTransitionStyle = true
+        addWeightAlertVC.definesPresentationContext = true
+        addWeightAlertVC.modalPresentationStyle = .overFullScreen
+        
+        self.present(addWeightAlertVC, animated: false, completion: nil)
     }
     
 }

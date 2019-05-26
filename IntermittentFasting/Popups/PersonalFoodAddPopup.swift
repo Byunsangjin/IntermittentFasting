@@ -160,6 +160,7 @@ class PersonalFoodAddPopup: BasePopup {
 			var gapOffsetY : CGFloat = 0.0
 			if CommonUtil.isIphoneX == true {
 				gapOffsetY = 34.0
+                print("실행!!")
 			}
 			// 키보드 높이
 			let kbSizeHeight : CGFloat = keyboardRectangle.height - gapOffsetY

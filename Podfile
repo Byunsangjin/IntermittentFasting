@@ -10,5 +10,9 @@ target 'IntermittentFasting' do
   pod 'RxCocoa',    '~> 4.0'
   pod 'Charts'
   pod 'RealmSwift'
+  
+  # Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
 end

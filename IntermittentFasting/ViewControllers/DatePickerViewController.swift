@@ -25,7 +25,7 @@ class DatePickerViewController: UIViewController {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dimViewTap)))
         
-        parentVC = self.parent as! InputInfoViewController
+        parentVC = self.parent as? InputInfoViewController
     }
     
     

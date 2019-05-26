@@ -68,7 +68,7 @@ class PersonalFoodViewController: UIViewController {
 	@IBAction func onFoodAddClick(_ sender: UIButton) {
 		self.view.endEditing(true)
 		
-		let popupVC = PersonalFoodAddPopup.personalFoodAddPopup()
+		let popupVC = PersonalFoodAddPopup.personalFoodAddPopup(parentVC: self)
 		popupVC.addActionConfirmClick("확인") { (strFoodName, calorie, gram) in
 			print(strFoodName)
 			print(calorie)

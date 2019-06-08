@@ -14,7 +14,6 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
     @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet var chartView: LineChartView!
-    @IBOutlet var weightLabel: UILabel!
     
     
     
@@ -41,7 +40,9 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
         
         chartView.rightAxis.enabled = false
         
+        
         chartView.animate(xAxisDuration: 0.5, yAxisDuration: 1)
+        
         
         
         
@@ -56,12 +57,12 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
         
         let xAxis = chartView.xAxis
         xAxis.axisMinimum = 1
-        xAxis.axisMaximum = 3
+        xAxis.axisMaximum = 10
         xAxis.labelPosition = .bottom
         
         xAxis.gridLineWidth = 0
         
-        xAxis.labelCount = 6
+        xAxis.labelCount = 10
         
         let xAxisFomatter = NumberFormatter()
         xAxisFomatter.minimumFractionDigits = 0
@@ -73,7 +74,7 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
         
         xAxis.valueFormatter =  DefaultAxisValueFormatter(formatter: xAxisFomatter)
         
-        setDataCount(3, range: 0)
+        setDataCount(10, range: 0)
         
         let marker = XYMarkerView(color: UIColor(white: 180/255, alpha: 1),
                                    font: .systemFont(ofSize: 12),
@@ -120,9 +121,9 @@ class WeightMainViewController: UIViewController, ChartViewDelegate {
         
         let set1 = LineChartDataSet(values: yVals1, label: "DataSet 1")
         set1.axisDependency = .left
-        set1.setColor(UIColor(red: 255/255, green: 241/255, blue: 46/255, alpha: 1))
+        set1.setColor(UIColor.red)
         set1.drawCirclesEnabled = false
-        set1.lineWidth = 0
+        set1.lineWidth = 3
         set1.circleRadius = 3
         set1.fillAlpha = 1
         set1.drawFilledEnabled = true

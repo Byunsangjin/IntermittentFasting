@@ -157,7 +157,8 @@ class InputInfoViewController: UIViewController {
     
     @objc func nextBtnClick() {
         let selectWayVC = self.storyboard?.instantiateViewController(withIdentifier: "SelectWayViewController") as! SelectWayViewController
-        self.present(selectWayVC, animated: true)
+//        self.present(selectWayVC, animated: true)s
+        self.navigationController?.pushViewController(selectWayVC, animated: true)
     }
     
     
@@ -175,7 +176,7 @@ class InputInfoViewController: UIViewController {
     
     // MARK:- Actions
     @IBAction func backBtnClick(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     

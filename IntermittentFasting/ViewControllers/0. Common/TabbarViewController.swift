@@ -64,7 +64,12 @@ class TabbarViewController: UIViewController {
         if let storyboard = AppDelegate.sharedNamedStroyBoard("Sama73") as? UIStoryboard {
             calorieVC = storyboard.instantiateViewController(withIdentifier: "CalorieMainViewController") as? CalorieMainViewController
         }
-        let weightVC = self.storyboard?.instantiateViewController(withIdentifier: "WeightMainViewController") as? WeightMainViewController
+        
+        var weightVC: UIViewController?
+        if let sjbyunSB = AppDelegate.sharedNamedStroyBoard("SjByun") as? UIStoryboard {
+            weightVC = sjbyunSB.instantiateViewController(withIdentifier: "WeightMainViewController") as? WeightMainViewController
+        }
+//        let weightVC = self.storyboard?.instantiateViewController(withIdentifier: "WeightMainViewController") as? WeightMainViewController
         let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeMainViewController") as? HomeMainViewController
         let jhPark = UIStoryboard.init(name: "JhPark", bundle: nil)
         let boardNavC = jhPark.instantiateViewController(withIdentifier: "BoardNavC") as? UINavigationController
@@ -126,6 +131,7 @@ class TabbarViewController: UIViewController {
         
         // 이전 Tab Index와 같으면
         if previousIndex == selectedIndex {
+            print("??")
             return
         }
         

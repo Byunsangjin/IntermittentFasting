@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     @IBAction func startBtnClick(_ sender: Any) {
         let inputInfoVC = self.storyboard?.instantiateViewController(withIdentifier: "InputInfoViewController") as! InputInfoViewController
         
-        self.present(inputInfoVC, animated: true)
+        self.navigationController?.pushViewController(inputInfoVC, animated: true)
     }
     
     

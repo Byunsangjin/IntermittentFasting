@@ -9,20 +9,32 @@
 import UIKit
 
 class BoardVC: UIViewController {
-
+    
+    @IBOutlet weak var hiddenBtn: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    
+    var boardList = Array<ModelBoard>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        FireStoreManager.shared.selectBoard { array in
+            self.boardList = array
+            self.tableView.reloadData()
+        }
+        
     }
     
-
+    
     @IBAction func pushBtn(_ sender: UIButton) {
         let tag = sender.tag
         let storyboard = UIStoryboard.init(name: "JhPark", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "BoardDetailVC")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func addBtnClicked(_ sender: Any) {
+        let storyboard = UIStoryboard.init(name: "JhPark", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "BoardInsertVC")
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -35,19 +47,23 @@ extension BoardVC: UITableViewDelegate, UITableViewDataSource {
         return number
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfRows = 4
+        let numberOfRows = self.boardList.count
         return numberOfRows
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         let row = indexPath.row
+        let board = self.boardList[row]
         let cell:BoardCell!
         if row == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: "BoardTitle") as? BoardCell
             cell.pushBtn.tag = section
+            cell.writerLabel.text = board.writer_name
+            
         }else if row == 1 {
             cell = tableView.dequeueReusableCell(withIdentifier: "BoardContent") as? BoardCell
             cell.pushBtn.tag = section
+            cell.contentLabel.text = board.content
         }else if row == 2 {
             cell = tableView.dequeueReusableCell(withIdentifier: "BoardPhoto1") as? BoardCell
             cell.pushBtn.tag = section

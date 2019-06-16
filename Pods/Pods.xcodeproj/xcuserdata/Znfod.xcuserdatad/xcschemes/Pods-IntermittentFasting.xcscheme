@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A90D28A8BBC91FCAF3497902B1766246"
+               BlueprintIdentifier = "60D8A9D6114060AED6BD95C11103A438"
                BuildableName = "Pods_IntermittentFasting.framework"
                BlueprintName = "Pods-IntermittentFasting"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A90D28A8BBC91FCAF3497902B1766246"
+            BlueprintIdentifier = "60D8A9D6114060AED6BD95C11103A438"
             BuildableName = "Pods_IntermittentFasting.framework"
             BlueprintName = "Pods-IntermittentFasting"
             ReferencedContainer = "container:Pods.xcodeproj">

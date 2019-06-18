@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseFirestore
+import FirebaseStorage
 
 class ModelImage: BaseModel {
     // 이미지 아이디

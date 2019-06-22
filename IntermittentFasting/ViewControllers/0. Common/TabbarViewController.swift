@@ -73,7 +73,7 @@ class TabbarViewController: UIViewController {
         let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeMainViewController") as? HomeMainViewController
         let jhPark = UIStoryboard.init(name: "JhPark", bundle: nil)
         let boardNavC = jhPark.instantiateViewController(withIdentifier: "BoardNavC") as? UINavigationController
-        let boardVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardMainViewController") as? BoardMainViewController
+//        let boardVC = self.storyboard?.instantiateViewController(withIdentifier: "BoardMainViewController") as? BoardMainViewController
         let settingsVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingsMainViewController") as? SettingsMainViewController
 
 		arrTabbarControll += [calorieVC!]

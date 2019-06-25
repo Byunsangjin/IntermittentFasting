@@ -336,7 +336,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_food_search.png" translatesAutoresizingMaskIntoConstraints="NO" id="27I-Qq-AxC">
                                         <rect key="frame" x="17" y="10.5" width="19.5" height="19"/>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="검색어를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="emE-gF-8o3">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="검색어를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="emE-gF-8o3" customClass="CustomTextField" customModule="IntermittentFasting" customModuleProvider="target">
                                         <rect key="frame" x="53.5" y="0.0" width="258.5" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
@@ -444,6 +444,11 @@
                                                 <constraint firstItem="Sa8-TF-1NF" firstAttribute="centerY" secondItem="6AY-jk-KnD" secondAttribute="centerY" id="nkZ-Yh-Euv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lbCalories" destination="a9z-kB-VDl" id="JOn-SR-CVI"/>
+                                            <outlet property="lbFoodName" destination="Sa8-TF-1NF" id="Hn9-kx-Eo5"/>
+                                            <outlet property="lbServingSize" destination="fsJ-h2-iCt" id="ecM-iG-Vf5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -468,6 +473,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="WvX-i4-3qP" id="4Yo-D1-ZzR"/>
+                        <outlet property="tfSearch" destination="emE-gF-8o3" id="e9z-oI-Cr9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBM-zP-Fia" userLabel="First Responder" sceneMemberID="firstResponder"/>

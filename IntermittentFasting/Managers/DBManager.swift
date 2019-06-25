@@ -19,7 +19,7 @@ class DBManager: NSObject {
     var database: Realm!
 	
 	// 음식 데이터
-	var arrFoodData: [NSDictionary] = [];
+	var arrFoodData: [[String: String]] = [];
     
     
     override init() {
@@ -40,9 +40,15 @@ class DBManager: NSObject {
 			fileContents = try String(contentsOfFile: filePath!, encoding: .utf8)
 			let data = fileContents?.data(using: .utf8)
 			if let data = data {
-				self.arrFoodData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [NSDictionary]
+				self.arrFoodData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [[String: String]]
 			}
 		} catch {
 		}
+	}
+	
+	// 음식리스트
+	func getFoodList() -> [[String: String]] {
+		// 음식 데이터
+		return self.arrFoodData
 	}
 }

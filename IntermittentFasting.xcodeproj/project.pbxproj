@@ -100,6 +100,8 @@
 		D902E8E0228AB02900759558 /* FoodSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902E8DF228AB02900759558 /* FoodSearchTableViewCell.swift */; };
 		D904E6EF227EF98000972950 /* AlertMessagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904E6EE227EF97F00972950 /* AlertMessagePopup.swift */; };
 		D904E6F1227F04EB00972950 /* PersonalFoodAddPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904E6F0227F04EB00972950 /* PersonalFoodAddPopup.swift */; };
+		D904FE1C22C252C300634EE6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D904FE1B22C252C300634EE6 /* CustomTextField.swift */; };
+		D91BE5C822BE1E3500CEC820 /* foodData.json in Resources */ = {isa = PBXBuildFile; fileRef = D91BE5C722BE1E3500CEC820 /* foodData.json */; };
 		D9333948227FEEF0003B9475 /* UZTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9333947227FEEF0003B9475 /* UZTextField.swift */; };
 		D9C2B62D22844CDA00472B5E /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C2B62C22844CDA00472B5E /* FoodListViewController.swift */; };
 		D9D94FB3227DA4CD00E50069 /* icon_home_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D94F90227DA4CD00E50069 /* icon_home_on@3x.png */; };
@@ -256,6 +258,8 @@
 		D902E8DF228AB02900759558 /* FoodSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchTableViewCell.swift; sourceTree = "<group>"; };
 		D904E6EE227EF97F00972950 /* AlertMessagePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertMessagePopup.swift; sourceTree = "<group>"; };
 		D904E6F0227F04EB00972950 /* PersonalFoodAddPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalFoodAddPopup.swift; sourceTree = "<group>"; };
+		D904FE1B22C252C300634EE6 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		D91BE5C722BE1E3500CEC820 /* foodData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = foodData.json; sourceTree = "<group>"; };
 		D9333947227FEEF0003B9475 /* UZTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UZTextField.swift; sourceTree = "<group>"; };
 		D9C2B62C22844CDA00472B5E /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
 		D9D94F90227DA4CD00E50069 /* icon_home_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_home_on@3x.png"; sourceTree = "<group>"; };
@@ -419,6 +423,7 @@
 		606A40FE2264D0E5004B9329 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D91BE5C622BE1E3500CEC820 /* JsonData */,
 				D9D94F8E227DA4CD00E50069 /* images */,
 				605919502266CD5B0040ED9F /* font */,
 				6059194D2266CD400040ED9F /* icon */,
@@ -472,6 +477,7 @@
 		6098EC792268B28C0042EA96 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D904FE1A22C252A400634EE6 /* CustomTextField */,
 				D9333947227FEEF0003B9475 /* UZTextField.swift */,
 				D9D94FF6227DA4F700E50069 /* RoundLine */,
 				D9D94FF3227DA4F700E50069 /* ViewPagerContent */,
@@ -538,6 +544,22 @@
 				5BDB5778BA9EFE489F1A1B46 /* Pods_IntermittentFasting.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D904FE1A22C252A400634EE6 /* CustomTextField */ = {
+			isa = PBXGroup;
+			children = (
+				D904FE1B22C252C300634EE6 /* CustomTextField.swift */,
+			);
+			path = CustomTextField;
+			sourceTree = "<group>";
+		};
+		D91BE5C622BE1E3500CEC820 /* JsonData */ = {
+			isa = PBXGroup;
+			children = (
+				D91BE5C722BE1E3500CEC820 /* foodData.json */,
+			);
+			path = JsonData;
 			sourceTree = "<group>";
 		};
 		D9D94F8E227DA4CD00E50069 /* images */ = {
@@ -837,6 +859,7 @@
 				D902E8DB228A92C300759558 /* icon_not_foodlist@2x.png in Resources */,
 				D9D94FBC227DA4CD00E50069 /* icon_board_off@2x.png in Resources */,
 				6098EC882268C89D0042EA96 /* icon_front@2x.png in Resources */,
+				D91BE5C822BE1E3500CEC820 /* foodData.json in Resources */,
 				D9D94FB9227DA4CD00E50069 /* icon_personal_settings_on@3x.png in Resources */,
 				9BF17DE922998A5B00A1300B /* icon_heart2@2x.png in Resources */,
 				605919672266D6600040ED9F /* KOPUBDOTUMMEDIUM.TTF in Resources */,
@@ -1017,6 +1040,7 @@
 				606A40ED2264CE42004B9329 /* AppDelegate.swift in Sources */,
 				60BA7A1C2282C4A7009B574F /* XYMarkerView.swift in Sources */,
 				6098ECA52269E9C10042EA96 /* CustomLabel.swift in Sources */,
+				D904FE1C22C252C300634EE6 /* CustomTextField.swift in Sources */,
 				9B2C1B9422B47CB7004B96F3 /* BaseModel.swift in Sources */,
 				9BF17DCF22998A1300A1300B /* BoardCell.swift in Sources */,
 				D904E6EF227EF98000972950 /* AlertMessagePopup.swift in Sources */,
@@ -1167,7 +1191,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GN3PLAKW34;
+				DEVELOPMENT_TEAM = TXUZ6595T4;
 				INFOPLIST_FILE = IntermittentFasting/Supporting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1187,7 +1211,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GN3PLAKW34;
+				DEVELOPMENT_TEAM = TXUZ6595T4;
 				INFOPLIST_FILE = IntermittentFasting/Supporting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

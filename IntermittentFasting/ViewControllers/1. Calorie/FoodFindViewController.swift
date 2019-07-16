@@ -11,8 +11,11 @@ import UIKit
 class FoodFindViewController: UIViewController {
 
 	// 음식 목록
-	var arrFoodList: [String] = []
+	var search: String = ""
+	var arrFoodList: [[String: String]] = []
+	var arrSearchFood: [[String: String]] = []
 	
+	@IBOutlet weak var tfSearch: UITextField!
 	@IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -40,10 +43,9 @@ class FoodFindViewController: UIViewController {
 	func updateScreen() {
 		// 음식리스트
 		arrFoodList.removeAll()
-		let number = Int.random(in: 0 ... 5)
-		for _ in 0..<number {
-			arrFoodList += ["연어샐러드"]
-		}
+		
+		arrFoodList = DBManager.shared.getFoodList()
+		arrSearchFood = arrFoodList
 		
 		if arrFoodList.count == 0 {
 			tableView.isHidden = true
@@ -55,6 +57,24 @@ class FoodFindViewController: UIViewController {
 			let indexPath = NSIndexPath(row: NSNotFound, section: 0)
 			tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: false)
 		}
+		
+		tfSearch.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+	}
+	
+	@objc func textFieldDidChange(_ textField: UITextField) {
+		search = textField.text!
+		
+		// 빈문자일때 전체 목록
+		if CommonUtil.isEmpty(search as AnyObject) {
+			arrSearchFood = arrFoodList
+		}
+		// 검색어 필터 처리
+		else {
+			let predicate = NSPredicate(format: "FoodName CONTAINS[cd] %@", search)
+			arrSearchFood = (arrFoodList as NSArray).filtered(using: predicate) as! [[String : String]]
+		}
+		
+		tableView.reloadData()
 	}
 }
 
@@ -66,7 +86,7 @@ extension FoodFindViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return arrFoodList.count
+		return arrSearchFood.count
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -74,8 +94,9 @@ extension FoodFindViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		
+		let dicFoodData: [String: String] = arrSearchFood[indexPath.row]
 		let cell = tableView.dequeueReusableCell(withIdentifier: "FoodSearchTableViewCell") as! FoodSearchTableViewCell
+		cell.setCellInfo(dicFoodData)
 		
 		return cell
 	}
@@ -86,3 +107,23 @@ extension FoodFindViewController: UITableViewDataSource, UITableViewDelegate {
 		
 	}
 }
+
+//extension FoodFindViewController: UITextFieldDelegate {
+//
+//	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//		if string.isEmpty {
+//			search = textField.text!
+//		}
+//		else {
+//			search = textField.text! + string
+//
+//		}
+//		print(search)
+//		let predicate = NSPredicate(format: "FoodName CONTAINS[cd] %@", "김치찌개")
+//		arrSearchFood = (arrFoodList as NSArray).filtered(using: predicate) as! [[String : String]]
+//
+//		tableView.reloadData()
+//
+//		return true
+//	}
+//}

@@ -17,7 +17,9 @@ class DBManager: NSObject {
     
     // MARK:- Variables
     var database: Realm!
-    
+	
+	// 음식 데이터
+	var arrFoodData: [[String: String]] = [];
     
     
     override init() {
@@ -25,5 +27,28 @@ class DBManager: NSObject {
         print("DBManager init")
         
         database = try! Realm()
+		
+		// 음식 데이터 로드
+		foodDataLoad()
     }
+	
+	// 음식 데이터 로드
+	func foodDataLoad() {
+		let filePath = Bundle.main.path(forResource: "foodData", ofType: "json")
+		var fileContents: String? = nil
+		do {
+			fileContents = try String(contentsOfFile: filePath!, encoding: .utf8)
+			let data = fileContents?.data(using: .utf8)
+			if let data = data {
+				self.arrFoodData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [[String: String]]
+			}
+		} catch {
+		}
+	}
+	
+	// 음식리스트
+	func getFoodList() -> [[String: String]] {
+		// 음식 데이터
+		return self.arrFoodData
+	}
 }
